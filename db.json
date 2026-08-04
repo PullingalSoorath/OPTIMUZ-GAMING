@@ -1,0 +1,712 @@
+{
+  "leaderboard": [
+    {
+      "id": "1785833227122",
+      "name": "Optimuz",
+      "score": 6800,
+      "date": "2026-08-04",
+      "verified": true
+    },
+    {
+      "id": "1",
+      "name": "CyberShadow",
+      "score": 3200,
+      "date": "2026-08-01",
+      "verified": true
+    },
+    {
+      "id": "2",
+      "name": "OptimuzFan_99",
+      "score": 2850,
+      "date": "2026-08-02",
+      "verified": true
+    },
+    {
+      "id": "3",
+      "name": "VinnieMoretti",
+      "score": 2400,
+      "date": "2026-08-03",
+      "verified": true
+    },
+    {
+      "id": "4",
+      "name": "GunslingerArthur",
+      "score": 1950,
+      "date": "2026-08-03",
+      "verified": true
+    },
+    {
+      "id": "5",
+      "name": "NeonPulse",
+      "score": 1600,
+      "date": "2026-08-04",
+      "verified": true
+    }
+  ],
+  "activities": [
+    {
+      "id": "1785836606047-xf3j",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:43:26.047Z"
+    },
+    {
+      "id": "1785836606027-6g6g",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:43:26.027Z"
+    },
+    {
+      "id": "1785836202523-p9sy",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"LEADERBOARD\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:42.523Z"
+    },
+    {
+      "id": "1785836202516-nfp9",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"LEADERBOARD\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:42.516Z"
+    },
+    {
+      "id": "1785836200476-cnn1",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:36:40.476Z"
+    },
+    {
+      "id": "1785836200469-jr8j",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:36:40.469Z"
+    },
+    {
+      "id": "1785836196555-igja",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"LEADERBOARD\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:36.556Z"
+    },
+    {
+      "id": "1785836196550-rx0u",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"LEADERBOARD\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:36.550Z"
+    },
+    {
+      "id": "1785836195327-dx3t",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"ARCADE GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:35.327Z"
+    },
+    {
+      "id": "1785836195322-8eoz",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"ARCADE GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:35.322Z"
+    },
+    {
+      "id": "1785836193489-ldex",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"LEADERBOARD\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:33.489Z"
+    },
+    {
+      "id": "1785836193469-zyyr",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"LEADERBOARD\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:33.469Z"
+    },
+    {
+      "id": "1785836192344-ot91",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"ARCADE GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:32.344Z"
+    },
+    {
+      "id": "1785836192338-r7id",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"ARCADE GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:32.338Z"
+    },
+    {
+      "id": "1785836187162-fq26",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Submitted Score Direct",
+      "details": "Optimuz: 9800",
+      "timestamp": "2026-08-04T09:36:27.162Z"
+    },
+    {
+      "id": "1785836187110-fnee",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"SUBMIT\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:27.110Z"
+    },
+    {
+      "id": "1785836187101-hmlv",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"SUBMIT\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:27.101Z"
+    },
+    {
+      "id": "1785836184844-zgel",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"ARCADE GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:24.844Z"
+    },
+    {
+      "id": "1785836184836-ubrw",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"ARCADE GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:24.836Z"
+    },
+    {
+      "id": "1785836181328-0bnl",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"LEADERBOARD\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:21.329Z"
+    },
+    {
+      "id": "1785836181315-u9o5",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"LEADERBOARD\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:36:21.315Z"
+    },
+    {
+      "id": "1785836177747-4u58",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Finished Direct Mini-Game",
+      "details": "Final Score: 9800",
+      "timestamp": "2026-08-04T09:36:17.747Z"
+    },
+    {
+      "id": "1785836177735-meyg",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Finished Direct Mini-Game",
+      "details": "Final Score: 9800",
+      "timestamp": "2026-08-04T09:36:17.736Z"
+    },
+    {
+      "id": "1785836147790-mtdz",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"START GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:35:47.790Z"
+    },
+    {
+      "id": "1785836147777-bmpt",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"START GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:35:47.777Z"
+    },
+    {
+      "id": "1785836147756-r9q7",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Started Direct Mini-Game",
+      "details": "Home Section Arcade",
+      "timestamp": "2026-08-04T09:35:47.759Z"
+    },
+    {
+      "id": "1785835919556-dyp4",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"LEADERBOARD\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:31:59.556Z"
+    },
+    {
+      "id": "1785835919539-1dml",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"LEADERBOARD\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:31:59.541Z"
+    },
+    {
+      "id": "1785835721049-a1cc",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:28:41.049Z"
+    },
+    {
+      "id": "1785835720988-r59a",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:28:40.992Z"
+    },
+    {
+      "id": "1785835513385-s1h8",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:25:13.385Z"
+    },
+    {
+      "id": "1785835513345-78sv",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:25:13.345Z"
+    },
+    {
+      "id": "1785835500463-xvob",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:25:00.464Z"
+    },
+    {
+      "id": "1785835500433-fopt",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:25:00.434Z"
+    },
+    {
+      "id": "1785835325753-wb5c",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:22:05.753Z"
+    },
+    {
+      "id": "1785835325740-apit",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:22:05.740Z"
+    },
+    {
+      "id": "1785834859806-wpcp",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"ALL\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:14:19.806Z"
+    },
+    {
+      "id": "1785834859799-iigz",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"ALL\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:14:19.799Z"
+    },
+    {
+      "id": "1785834858387-8yke",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"MECCA CHAMELEON\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:14:18.387Z"
+    },
+    {
+      "id": "1785834858379-pycl",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"MECCA CHAMELEON\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:14:18.379Z"
+    },
+    {
+      "id": "1785834855735-igvz",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"COMPETITIVE\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:14:15.735Z"
+    },
+    {
+      "id": "1785834855724-q5td",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"COMPETITIVE\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:14:15.724Z"
+    },
+    {
+      "id": "1785834853072-enz0",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"RDR2 RP\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:14:13.072Z"
+    },
+    {
+      "id": "1785834853063-yekv",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"RDR2 RP\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:14:13.064Z"
+    },
+    {
+      "id": "1785834842493-flfs",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Mobile",
+      "action": "Clicked Element",
+      "details": "Text: \"MECCA CHAMELEON\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:14:02.494Z"
+    },
+    {
+      "id": "1785834842434-zhk7",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Mobile",
+      "action": "Clicked Element",
+      "details": "Text: \"MECCA CHAMELEON\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:14:02.436Z"
+    },
+    {
+      "id": "1785834675680-q7va",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:11:15.681Z"
+    },
+    {
+      "id": "1785834675641-06bz",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:11:15.643Z"
+    },
+    {
+      "id": "1785834156773-ewz5",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:02:36.773Z"
+    },
+    {
+      "id": "1785834156763-ssxp",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:02:36.763Z"
+    },
+    {
+      "id": "1785834138876-fxuq",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"WATCH LIVE\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:02:18.876Z"
+    },
+    {
+      "id": "1785834138866-hx0a",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"WATCH LIVE\" | Href: \"\"",
+      "timestamp": "2026-08-04T09:02:18.867Z"
+    },
+    {
+      "id": "1785834102053-qqvc",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:01:42.053Z"
+    },
+    {
+      "id": "1785834102013-l9il",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:01:42.013Z"
+    },
+    {
+      "id": "1785833865122-da8w",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:57:45.122Z"
+    },
+    {
+      "id": "1785833865105-kzd2",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:57:45.106Z"
+    },
+    {
+      "id": "1785833689492-hzfm",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:54:49.492Z"
+    },
+    {
+      "id": "1785833689461-zmih",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:54:49.463Z"
+    },
+    {
+      "id": "1785833503361-1a6q",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Finished Mini-Game",
+      "details": "Final Score: 0",
+      "timestamp": "2026-08-04T08:51:43.361Z"
+    },
+    {
+      "id": "1785833503356-0p2z",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Finished Mini-Game",
+      "details": "Final Score: 0",
+      "timestamp": "2026-08-04T08:51:43.356Z"
+    },
+    {
+      "id": "1785833488262-7vuz",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"PLAY MINI-GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:51:28.262Z"
+    },
+    {
+      "id": "1785833488241-pgih",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"PLAY MINI-GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:51:28.241Z"
+    },
+    {
+      "id": "1785833472940-a4fj",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Started Mini-Game",
+      "details": "Cyber Target Blaster 2077",
+      "timestamp": "2026-08-04T08:51:12.940Z"
+    },
+    {
+      "id": "1785833471378-v28j",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"PLAY MINI-GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:51:11.378Z"
+    },
+    {
+      "id": "1785833471370-90t3",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"PLAY MINI-GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:51:11.370Z"
+    },
+    {
+      "id": "1785833467501-h1xp",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"PLAY MINI-GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:51:07.502Z"
+    },
+    {
+      "id": "1785833467488-fdm3",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"PLAY MINI-GAME\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:51:07.489Z"
+    },
+    {
+      "id": "1785833361062-mu9o",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"Secret Admin Panel\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:49:21.062Z"
+    },
+    {
+      "id": "1785833361057-di0n",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"Secret Admin Panel\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:49:21.057Z"
+    },
+    {
+      "id": "1785833358511-x2fv",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:49:18.511Z"
+    },
+    {
+      "id": "1785833358504-v165",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:49:18.504Z"
+    },
+    {
+      "id": "1785833354540-7803",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"Secret Admin Panel\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:49:14.540Z"
+    },
+    {
+      "id": "1785833354529-1gu6",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"Secret Admin Panel\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:49:14.529Z"
+    },
+    {
+      "id": "1785833352496-zv5r",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:49:12.496Z"
+    },
+    {
+      "id": "1785833352485-terj",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:49:12.485Z"
+    },
+    {
+      "id": "1785833341390-v3j0",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"Secret Admin Panel\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:49:01.390Z"
+    },
+    {
+      "id": "1785833341383-bvjs",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"Secret Admin Panel\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:49:01.383Z"
+    },
+    {
+      "id": "1785833338879-9sv5",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:48:58.879Z"
+    },
+    {
+      "id": "1785833338857-zy9s",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:48:58.857Z"
+    },
+    {
+      "id": "1785833329269-yp0t",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"Secret Admin Panel\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:48:49.269Z"
+    },
+    {
+      "id": "1785833329256-ydhv",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"Secret Admin Panel\" | Href: \"\"",
+      "timestamp": "2026-08-04T08:48:49.256Z"
+    },
+    {
+      "id": "1785833327032-zxts",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:48:47.033Z"
+    },
+    {
+      "id": "1785833327022-00n1",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T08:48:47.023Z"
+    }
+  ]
+}
