@@ -1,36 +1,72 @@
 import React, { useState, useEffect } from 'react';
-import { Play, Disc as DiscordIcon, Zap, Trophy, Flame, Gamepad2, Award } from 'lucide-react';
+import { Play, Disc as DiscordIcon, Zap, Trophy, Flame } from 'lucide-react';
 import { YoutubeIcon } from './SocialIcons';
 import EmbeddedMiniGame from './EmbeddedMiniGame';
 
 export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
   const [channelStats, setChannelStats] = useState({
     subscribers: '111+',
-    videos: '93+',
+    videos: '94+',
     views: '8.5K+'
   });
 
-  // Auto-fetch real-time channel updates from YouTube RSS
+  // Multi-proxy live YouTube channel statistics fetcher
   useEffect(() => {
-    async function fetchLiveStats() {
-      try {
-        const res = await fetch(
-          `https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=UCDeyo71Bc3BKfy7XSmN8Phw&_t=${Date.now()}`
-        );
-        const data = await res.json();
-        if (data.status === 'ok' && data.items) {
-          // Dynamically sync metrics with official channel feed
+    async function fetchRealTimeYouTubeStats() {
+      const proxyUrls = [
+        'https://api.allorigins.win/raw?url=https://www.youtube.com/@optimuz_gaming',
+        'https://corsproxy.io/?https://www.youtube.com/@optimuz_gaming',
+        'https://api.codetabs.com/v1/proxy?quest=https://www.youtube.com/@optimuz_gaming'
+      ];
+
+      for (const proxyUrl of proxyUrls) {
+        try {
+          const res = await fetch(proxyUrl);
+          if (!res.ok) continue;
+          const html = await res.text();
+
+          // 1. Extract Live Subscribers
+          const subMatch = html.match(/"subscriberCountText":\{[^}]*"simpleText":"([^"]+)"/) || html.match(/(\d+[\d,.]*\s*subscribers)/i);
+          let subVal = '111+';
+          if (subMatch && subMatch[1]) {
+            const rawSub = subMatch[1].replace(/subscribers/i, '').trim();
+            if (rawSub) subVal = rawSub.endsWith('+') ? rawSub : `${rawSub}+`;
+          }
+
+          // 2. Extract Total Uploaded Videos
+          const vidMatch = html.match(/"videosCountText":\{[^}]*"text":"([^"]+)"/) || html.match(/(\d+[\d,.]*)\s*videos/i);
+          let vidVal = '94+';
+          if (vidMatch && vidMatch[1]) {
+            const rawVid = vidMatch[1].replace(/videos/i, '').trim();
+            if (rawVid) vidVal = rawVid.endsWith('+') ? rawVid : `${rawVid}+`;
+          }
+
+          // 3. Extract Channel Views
+          const viewMatch = html.match(/"viewCountText":\{[^}]*"simpleText":"([^"]+)"/) || html.match(/([\d,]+)\s*views/i);
+          let viewVal = '8.5K+';
+          if (viewMatch && viewMatch[1]) {
+            const num = parseInt(viewMatch[1].replace(/[^0-9]/g, ''), 10);
+            if (!isNaN(num) && num > 0) {
+              viewVal = num >= 1000 ? `${(num / 1000).toFixed(1)}K+` : `${num}+`;
+            }
+          }
+
           setChannelStats({
-            subscribers: '111+',
-            videos: '93+',
-            views: '8.5K+'
+            subscribers: subVal,
+            videos: vidVal,
+            views: viewVal
           });
+          break; // Successfully updated from live channel page!
+        } catch (e) {
+          // Fallthrough to next proxy gateway
         }
-      } catch (err) {
-        console.log('Channel stats synced');
       }
     }
-    fetchLiveStats();
+
+    fetchRealTimeYouTubeStats();
+    // Auto-update stats every 2 minutes
+    const interval = setInterval(fetchRealTimeYouTubeStats, 120000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -140,7 +176,7 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
               </a>
             </div>
 
-            {/* Quick Metrics Bar (Auto-Synced Channel Statistics) */}
+            {/* Quick Metrics Bar (Live Auto-Updating YouTube Statistics) */}
             <div
               style={{
                 display: 'grid',
