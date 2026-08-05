@@ -54,12 +54,10 @@ function loadDb() {
   }
 }
 
-// Atomic Safe DB Save
+// Direct Safe DB Save
 function saveDb(data) {
   try {
-    const tempPath = `${DB_FILE}.tmp`;
-    fs.writeFileSync(tempPath, JSON.stringify(data, null, 2));
-    fs.renameSync(tempPath, DB_FILE);
+    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
   } catch (err) {
     console.error('Error saving db.json:', err.message);
   }
@@ -106,7 +104,6 @@ app.post('/api/leaderboard', (req, res) => {
 
     db.leaderboard.push(newEntry);
     db.leaderboard.sort((a, b) => b.score - a.score);
-    // Limit store total leaderboard to top 100
     if (db.leaderboard.length > 100) db.leaderboard.length = 100;
     saveDb(db);
 

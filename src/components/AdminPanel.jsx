@@ -318,7 +318,7 @@ export default function AdminPanel({ isOpen, onClose }) {
                     <tr style={{ background: 'rgba(0, 240, 255, 0.1)', color: 'var(--neon-cyan)', textAlign: 'left' }}>
                       <th style={{ padding: '12px 16px', borderBottom: '1px solid rgba(0, 240, 255, 0.2)' }}>TIMESTAMP</th>
                       <th style={{ padding: '12px 16px', borderBottom: '1px solid rgba(0, 240, 255, 0.2)' }}>SESSION ID</th>
-                      <th style={{ padding: '12px 16px', borderBottom: '1px solid rgba(0, 240, 255, 0.2)' }}>DEVICE</th>
+                      <th style={{ padding: '12px 16px', borderBottom: '1px solid rgba(0, 240, 255, 0.2)' }}>VISITOR</th>
                       <th style={{ padding: '12px 16px', borderBottom: '1px solid rgba(0, 240, 255, 0.2)' }}>ACTION</th>
                       <th style={{ padding: '12px 16px', borderBottom: '1px solid rgba(0, 240, 255, 0.2)' }}>DETAILS</th>
                     </tr>

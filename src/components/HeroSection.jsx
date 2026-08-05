@@ -237,7 +237,7 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
                 }}
               >
                 <img
-                  src="/assets/optimuz_avatar.png"
+                  src={`${import.meta.env.BASE_URL}assets/optimuz_avatar.png`}
                   alt="OPTIMUZ GAMING Avatar"
                   style={{
                     width: '100%',

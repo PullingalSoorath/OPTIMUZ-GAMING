@@ -45,6 +45,166 @@
   ],
   "activities": [
     {
+      "id": "1785945838991-0r8o",
+      "sessionId": "sess-1785945506712-bmgng",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-05T16:03:58.991Z"
+    },
+    {
+      "id": "1785945838971-nkgt",
+      "sessionId": "sess-1785945506712-bmgng",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-05T16:03:58.971Z"
+    },
+    {
+      "id": "1785945689797-detu",
+      "sessionId": "sess-1785945506712-bmgng",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"Secret Admin Panel\" | Href: \"\"",
+      "timestamp": "2026-08-05T16:01:29.797Z"
+    },
+    {
+      "id": "1785945689760-t2md",
+      "sessionId": "sess-1785945506712-bmgng",
+      "device": "Desktop",
+      "action": "Clicked Element",
+      "details": "Text: \"Secret Admin Panel\" | Href: \"\"",
+      "timestamp": "2026-08-05T16:01:29.762Z"
+    },
+    {
+      "id": "1785945506760-xms8",
+      "sessionId": "sess-1785945506712-bmgng",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-05T15:58:26.760Z"
+    },
+    {
+      "id": "1785945506744-jeov",
+      "sessionId": "sess-1785945506712-bmgng",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-05T15:58:26.744Z"
+    },
+    {
+      "id": "1785945499977-yd3t",
+      "sessionId": "sess-1785945499477-878ib",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-05T15:58:19.978Z"
+    },
+    {
+      "id": "1785945323350-y49p",
+      "sessionId": "sess-1785837050899-5r0f7",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-05T15:55:23.350Z"
+    },
+    {
+      "id": "1785945293803-4eqe",
+      "sessionId": "sess-1785837050899-5r0f7",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-05T15:54:53.804Z"
+    },
+    {
+      "id": "1785945274666-z01a",
+      "sessionId": "sess-1785837050899-5r0f7",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-05T15:54:34.671Z"
+    },
+    {
+      "id": "1785837071180-8ifx",
+      "sessionId": "sess-1785837050899-5r0f7",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-04T09:51:11.180Z"
+    },
+    {
+      "id": "1785837063132-dt2h",
+      "sessionId": "sess-1785837050899-5r0f7",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-04T09:51:03.132Z"
+    },
+    {
+      "id": "1785837059338-bvjm",
+      "sessionId": "sess-1785837050899-5r0f7",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-04T09:50:59.340Z"
+    },
+    {
+      "id": "1785837010560-i0nz",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:50:10.560Z"
+    },
+    {
+      "id": "1785837010541-yafg",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:50:10.541Z"
+    },
+    {
+      "id": "1785837007326-hh5j",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:50:07.326Z"
+    },
+    {
+      "id": "1785837007299-nq76",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:50:07.299Z"
+    },
+    {
+      "id": "1785837004342-64a4",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:50:04.343Z"
+    },
+    {
+      "id": "1785836997684-bk9q",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:49:57.685Z"
+    },
+    {
+      "id": "1785836997605-ey56",
+      "sessionId": "sess-1785833131406-a3ye3",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: #videos",
+      "timestamp": "2026-08-04T09:49:57.607Z"
+    },
+    {
       "id": "1785836606047-xf3j",
       "sessionId": "sess-1785833131406-a3ye3",
       "device": "Desktop",

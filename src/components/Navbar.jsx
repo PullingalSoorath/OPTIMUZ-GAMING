@@ -56,7 +56,7 @@ export default function Navbar({ onOpenLiveModal, onOpenMiniGame, onOpenAdmin })
             }}
           >
             <img
-              src="/assets/optimuz_avatar.png"
+              src={`${import.meta.env.BASE_URL}assets/optimuz_avatar.png`}
               alt="OPTIMUZ GAMING Logo"
               style={{
                 width: '100%',

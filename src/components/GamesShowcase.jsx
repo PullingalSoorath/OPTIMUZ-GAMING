@@ -5,12 +5,14 @@ export default function GamesShowcase() {
   const [selectedGame, setSelectedGame] = useState(null);
   const [showExpansionModal, setShowExpansionModal] = useState(false);
 
+  const baseUrl = import.meta.env.BASE_URL;
+
   const games = [
     {
       id: 'pubg-bgmi',
       title: 'PUBG PC & BGMI',
       category: 'Battle Royale Mainstays',
-      image: '/assets/pubg.png',
+      image: `${baseUrl}assets/pubg.png`,
       tag: 'COMPETITIVE',
       tagColor: 'var(--neon-cyan)',
       role: 'Squad Leader & Main Fragger',
@@ -22,7 +24,7 @@ export default function GamesShowcase() {
       id: 'rdr2-rp',
       title: 'Red Dead Redemption RP',
       category: 'Syn County Server',
-      image: '/assets/rdr2.png',
+      image: `${baseUrl}assets/rdr2.png`,
       tag: 'ROLEPLAY LORE',
       tagColor: 'var(--neon-gold)',
       role: 'Outlaw Gunslinger / Sheriff',
@@ -34,7 +36,7 @@ export default function GamesShowcase() {
       id: 'gta-rp',
       title: 'GTA V RP',
       category: 'Grand RP Server',
-      image: '/assets/gta.png',
+      image: `${baseUrl}assets/gta.png`,
       tag: 'CITY CRIME',
       tagColor: 'var(--neon-purple)',
       role: 'Syndicate Boss / High Speed Driver',
@@ -46,7 +48,7 @@ export default function GamesShowcase() {
       id: 'sons-forest',
       title: 'Sons Of The Forest',
       category: 'Survival & Horror',
-      image: '/assets/forest.png',
+      image: `${baseUrl}assets/forest.png`,
       tag: 'HARDCORE SURVIVAL',
       tagColor: 'var(--neon-pink)',
       role: 'Base Engineer & Explorer',
@@ -58,7 +60,7 @@ export default function GamesShowcase() {
       id: 'mecha-break',
       title: 'Mecha Break / Mecca Chameleon',
       category: 'Next-Gen Mecha Combat',
-      image: '/assets/mecha.png',
+      image: `${baseUrl}assets/mecha.png`,
       tag: 'ARENA PILOT',
       tagColor: 'var(--neon-cyan)',
       role: 'Ace Combat Mech Pilot',

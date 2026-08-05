@@ -9,21 +9,9 @@ function getSessionId() {
   return id;
 }
 
-function getDeviceType() {
-  const ua = navigator.userAgent;
-  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-    return 'Tablet';
-  }
-  if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/i.test(ua)) {
-    return 'Mobile';
-  }
-  return 'Desktop';
-}
-
 export function trackUserEvent(action, details = '') {
   const sessionId = getSessionId();
-  const device = getDeviceType();
-  logActivity(sessionId, device, action, details);
+  logActivity(sessionId, 'Standard', action, details);
 }
 
 export function initAutoTracker() {
