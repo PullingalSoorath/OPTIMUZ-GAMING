@@ -45,6 +45,38 @@
   ],
   "activities": [
     {
+      "id": "1786035932017-w8uz",
+      "sessionId": "sess-1786035931964-ri581",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T17:05:32.017Z"
+    },
+    {
+      "id": "1786035931992-yrqf",
+      "sessionId": "sess-1786035931964-ri581",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T17:05:31.992Z"
+    },
+    {
+      "id": "1786035918658-fp31",
+      "sessionId": "sess-1786034958306-0bcos",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T17:05:18.658Z"
+    },
+    {
+      "id": "1786035918513-1zi1",
+      "sessionId": "sess-1786034958306-0bcos",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T17:05:18.518Z"
+    },
+    {
       "id": "1786034958586-ue9q",
       "sessionId": "sess-1786034958306-0bcos",
       "device": "Standard",
