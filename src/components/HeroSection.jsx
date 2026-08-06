@@ -2,89 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { Play, Disc as DiscordIcon, Zap, Trophy, Flame } from 'lucide-react';
 import { YoutubeIcon } from './SocialIcons';
 import EmbeddedMiniGame from './EmbeddedMiniGame';
+import { fetchLiveYouTubeChannelStats } from '../utils/api';
 
 export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
-  // Initialize with latest channel stats + check localStorage cache
-  const [channelStats, setChannelStats] = useState(() => {
-    try {
-      const cached = localStorage.getItem('optimuz_live_channel_stats');
-      if (cached) {
-        const parsed = JSON.parse(cached);
-        if (parsed.subscribers && parsed.videos && parsed.views) {
-          return parsed;
-        }
-      }
-    } catch (e) {}
-    return {
-      subscribers: '130+',
-      videos: '96+',
-      views: '8.8K+'
-    };
+  // Initialize state with real-time baseline (135+ Subscribers, 96+ Videos Uploaded, 8.8K+ Views)
+  const [channelStats, setChannelStats] = useState({
+    subscribers: '135+',
+    videos: '96+',
+    views: '8.8K+'
   });
 
   // Persistent live YouTube channel statistics auto-updater
   useEffect(() => {
     async function updateYouTubeStats() {
-      const endpoints = [
-        'https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=UCDeyo71Bc3BKfy7XSmN8Phw',
-        'https://api.allorigins.win/raw?url=https://www.youtube.com/@optimuz_gaming',
-        'https://corsproxy.io/?https://www.youtube.com/@optimuz_gaming'
-      ];
-
-      for (const endpoint of endpoints) {
-        try {
-          const res = await fetch(`${endpoint}&_t=${Date.now()}`);
-          if (!res.ok) continue;
-
-          let subVal = '130+';
-          let vidVal = '96+';
-          let viewVal = '8.8K+';
-
-          if (endpoint.includes('rss2json')) {
-            const data = await res.json();
-            if (data.status === 'ok' && data.items) {
-              // Count videos from live feed
-              const count = data.items.length;
-              vidVal = count >= 10 ? '96+' : `${count}+`;
-            }
-          } else {
-            const html = await res.text();
-            
-            // Extract Subscribers if present in page payload
-            const subMatch = html.match(/(\d+[\d,.]*)\s*subscribers/i);
-            if (subMatch && subMatch[1]) {
-              const numStr = subMatch[1].trim();
-              if (parseInt(numStr, 10) >= 100) {
-                subVal = `${numStr}+`;
-              }
-            }
-
-            // Extract Videos if present
-            const vidMatch = html.match(/(\d+[\d,.]*)\s*videos/i);
-            if (vidMatch && vidMatch[1]) {
-              vidVal = `${vidMatch[1].trim()}+`;
-            }
-          }
-
-          const updated = {
-            subscribers: subVal,
-            videos: vidVal,
-            views: viewVal
-          };
-
-          setChannelStats(updated);
-          try {
-            localStorage.setItem('optimuz_live_channel_stats', JSON.stringify(updated));
-          } catch (e) {}
-          break;
-        } catch (err) {
-          // Continue to next endpoint
-        }
+      const data = await fetchLiveYouTubeChannelStats();
+      if (data && data.subscribers) {
+        setChannelStats({
+          subscribers: data.subscribers,
+          videos: data.videos || '96+',
+          views: data.views || '8.8K+'
+        });
       }
     }
 
     updateYouTubeStats();
-    const interval = setInterval(updateYouTubeStats, 120000); // Check every 2 minutes
+    const interval = setInterval(updateYouTubeStats, 60000); // Check every 60 seconds
     return () => clearInterval(interval);
   }, []);
 

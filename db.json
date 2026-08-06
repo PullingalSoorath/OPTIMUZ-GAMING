@@ -45,6 +45,70 @@
   ],
   "activities": [
     {
+      "id": "1786028858450-h62f",
+      "sessionId": "sess-1786028719145-vwzrw",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T15:07:38.451Z"
+    },
+    {
+      "id": "1786028858432-8oze",
+      "sessionId": "sess-1786028719145-vwzrw",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T15:07:38.432Z"
+    },
+    {
+      "id": "1786028853252-pkla",
+      "sessionId": "sess-1786028719145-vwzrw",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T15:07:33.252Z"
+    },
+    {
+      "id": "1786028853148-urt1",
+      "sessionId": "sess-1786028719145-vwzrw",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T15:07:33.149Z"
+    },
+    {
+      "id": "1786028724836-sukx",
+      "sessionId": "sess-1786028719145-vwzrw",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T15:05:24.836Z"
+    },
+    {
+      "id": "1786028724825-uu76",
+      "sessionId": "sess-1786028719145-vwzrw",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T15:05:24.825Z"
+    },
+    {
+      "id": "1786028719291-ei4r",
+      "sessionId": "sess-1786028719145-vwzrw",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T15:05:19.292Z"
+    },
+    {
+      "id": "1786028719263-zn67",
+      "sessionId": "sess-1786028719145-vwzrw",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T15:05:19.263Z"
+    },
+    {
       "id": "1785946140102-rvwk",
       "sessionId": "sess-1785945506712-bmgng",
       "device": "Standard",
