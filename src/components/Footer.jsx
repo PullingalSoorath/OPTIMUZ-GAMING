@@ -22,7 +22,7 @@ export default function Footer() {
         background: '#050508',
         borderTop: '1px solid rgba(0, 240, 255, 0.15)',
         paddingTop: '60px',
-        paddingBottom: '36px',
+        paddingBottom: '80px', /* Extra padding for mobile bottom bar */
         position: 'relative',
         zIndex: 2,
       }}
@@ -41,17 +41,32 @@ export default function Footer() {
         >
           {/* Brand Logo & Tag */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <img
-              src="/assets/optimuz_avatar.png"
-              alt="OPTIMUZ GAMING"
+            <div
               style={{
                 width: '48px',
                 height: '48px',
                 borderRadius: '50%',
-                border: '2px solid var(--neon-cyan)',
+                padding: '2px',
+                background: 'linear-gradient(135deg, var(--neon-cyan), var(--neon-purple))',
                 boxShadow: '0 0 15px var(--neon-cyan-glow)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
-            />
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}assets/optimuz_avatar.png`}
+                alt="OPTIMUZ GAMING Avatar"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  background: '#0d0d11',
+                }}
+              />
+            </div>
+
             <div>
               <div className="font-heading" style={{ fontSize: '1.3rem', fontWeight: 900, color: '#fff' }}>
                 OPTIMUZ <span style={{ color: 'var(--neon-cyan)' }}>GAMING</span>
