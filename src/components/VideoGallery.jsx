@@ -168,7 +168,7 @@ export default function VideoGallery() {
         <div
           className="glass-panel"
           style={{
-            padding: 'clamp(16px, 3vw, 24px)',
+            padding: 'clamp(14px, 3vw, 24px)',
             borderRadius: '20px',
             marginBottom: '36px',
             border: '1px solid rgba(0, 240, 255, 0.3)',
@@ -205,7 +205,7 @@ export default function VideoGallery() {
 
           {/* Player Info Footer */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '14px' }}>
-            <div style={{ flex: '1 1 280px' }}>
+            <div style={{ flex: '1 1 260px' }}>
               <div style={{ display: 'flex', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
                 <span className="cyber-tag">{currentVideo.category}</span>
                 <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
@@ -215,10 +215,10 @@ export default function VideoGallery() {
                   <Clock size={14} color="var(--neon-purple)" /> {currentVideo.date}
                 </span>
               </div>
-              <h3 className="font-heading" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', color: '#fff', marginBottom: '6px' }}>
+              <h3 className="font-heading" style={{ fontSize: 'clamp(1.05rem, 2vw, 1.35rem)', color: '#fff', marginBottom: '6px' }}>
                 {currentVideo.title}
               </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5 }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.5 }}>
                 {currentVideo.description}
               </p>
             </div>
@@ -247,7 +247,7 @@ export default function VideoGallery() {
                   padding: '6px 14px',
                   borderRadius: '6px',
                   fontFamily: 'var(--font-subheading)',
-                  fontSize: '0.8rem',
+                  fontSize: '0.78rem',
                   fontWeight: 700,
                   border: activeCategory === cat ? 'none' : '1px solid rgba(0, 240, 255, 0.2)',
                   background: activeCategory === cat ? 'linear-gradient(135deg, var(--neon-cyan), #00b8ff)' : 'rgba(255, 255, 255, 0.03)',
@@ -261,27 +261,28 @@ export default function VideoGallery() {
             ))}
           </div>
 
-          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <RefreshCw size={14} className={loading ? 'spin' : ''} color="var(--neon-cyan)" />
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <RefreshCw size={12} className={loading ? 'spin' : ''} color="var(--neon-cyan)" />
             {loading ? 'Syncing...' : 'Auto-Synced'}
           </div>
         </div>
 
-        {/* Playlist Feed Grid */}
+        {/* Playlist Feed Grid (2-Column Grid View on Smartphone & Tablet) */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '20px',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+            gap: '16px',
             width: '100%',
           }}
+          className="video-feed-grid"
         >
           {filteredVideos.map((video) => (
             <div
               key={video.id}
-              className="glass-panel"
+              className="glass-panel video-card-item"
               style={{
-                borderRadius: '14px',
+                borderRadius: '12px',
                 cursor: 'pointer',
                 overflow: 'hidden',
                 border: currentVideo.id === video.id ? '2px solid var(--neon-cyan)' : '1px solid var(--border-glass)',
@@ -293,7 +294,7 @@ export default function VideoGallery() {
                 window.scrollTo({ top: document.getElementById('videos').offsetTop + 100, behavior: 'smooth' });
               }}
             >
-              <div style={{ position: 'relative', height: '175px' }}>
+              <div className="video-card-thumb" style={{ position: 'relative', height: '160px' }}>
                 <img
                   src={video.thumbnail}
                   alt={video.title}
@@ -312,8 +313,8 @@ export default function VideoGallery() {
                 >
                   <div
                     style={{
-                      width: '42px',
-                      height: '42px',
+                      width: '38px',
+                      height: '38px',
                       borderRadius: '50%',
                       background: 'linear-gradient(135deg, var(--neon-cyan), var(--neon-purple))',
                       display: 'flex',
@@ -322,19 +323,19 @@ export default function VideoGallery() {
                       boxShadow: '0 0 15px var(--neon-cyan-glow)',
                     }}
                   >
-                    <Play size={18} fill="#07070a" color="#07070a" />
+                    <Play size={16} fill="#07070a" color="#07070a" />
                   </div>
                 </div>
                 <span
                   style={{
                     position: 'absolute',
-                    bottom: '8px',
-                    right: '8px',
+                    bottom: '6px',
+                    right: '6px',
                     background: 'rgba(7, 7, 10, 0.85)',
                     border: '1px solid rgba(255, 255, 255, 0.2)',
-                    padding: '2px 8px',
+                    padding: '2px 6px',
                     borderRadius: '4px',
-                    fontSize: '0.7rem',
+                    fontSize: '0.65rem',
                     color: 'var(--neon-cyan)',
                     fontWeight: 700,
                   }}
@@ -343,17 +344,17 @@ export default function VideoGallery() {
                 </span>
               </div>
 
-              <div style={{ padding: '16px' }}>
-                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--neon-cyan)', marginBottom: '4px' }}>
+              <div style={{ padding: '12px' }} className="video-card-body">
+                <div style={{ fontSize: '0.68rem', fontWeight: 700, color: 'var(--neon-cyan)', marginBottom: '4px' }}>
                   {video.category}
                 </div>
                 <h4
                   style={{
-                    fontSize: '0.88rem',
+                    fontSize: '0.82rem',
                     fontWeight: 700,
                     color: '#fff',
-                    lineHeight: 1.4,
-                    marginBottom: '8px',
+                    lineHeight: 1.35,
+                    marginBottom: '6px',
                     display: '-webkit-box',
                     WebkitLineClamp: 2,
                     WebkitBoxOrient: 'vertical',
@@ -362,7 +363,7 @@ export default function VideoGallery() {
                 >
                   {video.title}
                 </h4>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
                   {video.date} • {video.views}
                 </div>
               </div>
@@ -370,6 +371,22 @@ export default function VideoGallery() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        /* 2-Column Grid View on Smartphone and Tablet (< 768px) */
+        @media (max-width: 768px) {
+          .video-feed-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+          }
+          .video-card-thumb {
+            height: clamp(100px, 24vw, 140px) !important;
+          }
+          .video-card-body {
+            padding: 8px 10px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

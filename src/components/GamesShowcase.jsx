@@ -83,7 +83,7 @@ export default function GamesShowcase() {
     <section id="games">
       <div className="container">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <div className="cyber-tag" style={{ display: 'inline-block', marginBottom: '12px' }}>
             FEATURED GAMEPLAY
           </div>
@@ -95,19 +95,20 @@ export default function GamesShowcase() {
           </p>
         </div>
 
-        {/* Grid Showcase */}
+        {/* Grid Showcase (2-Column Grid View on Smartphone & Tablet) */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-            gap: '32px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '24px',
             width: '100%',
           }}
+          className="games-grid-container"
         >
           {games.map((game) => (
             <div
               key={game.id}
-              className="glass-panel"
+              className="glass-panel game-card-item"
               style={{
                 borderRadius: '16px',
                 cursor: 'pointer',
@@ -118,8 +119,9 @@ export default function GamesShowcase() {
             >
               {/* Cover Image Container */}
               <div
+                className="game-card-img-wrap"
                 style={{
-                  height: '240px',
+                  height: '200px',
                   width: '100%',
                   position: 'relative',
                   overflow: 'hidden',
@@ -140,8 +142,8 @@ export default function GamesShowcase() {
                 <div
                   style={{
                     position: 'absolute',
-                    top: '12px',
-                    left: '12px',
+                    top: '10px',
+                    left: '10px',
                     zIndex: 2,
                   }}
                 >
@@ -150,7 +152,8 @@ export default function GamesShowcase() {
                     style={{
                       borderColor: game.tagColor,
                       color: game.tagColor,
-                      background: 'rgba(7, 7, 10, 0.8)',
+                      background: 'rgba(7, 7, 10, 0.85)',
+                      fontSize: '0.7rem',
                     }}
                   >
                     {game.tag}
@@ -159,15 +162,15 @@ export default function GamesShowcase() {
               </div>
 
               {/* Card Body */}
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div style={{ padding: '16px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase' }}>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase' }}>
                     {game.category}
                   </div>
-                  <h3 className="font-heading" style={{ fontSize: '1.35rem', color: '#fff', marginBottom: '12px' }}>
+                  <h3 className="font-heading" style={{ fontSize: '1.15rem', color: '#fff', marginBottom: '8px' }}>
                     {game.title}
                   </h3>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '16px' }}>
+                  <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.4, marginBottom: '12px' }}>
                     {game.role}
                   </p>
                 </div>
@@ -177,14 +180,14 @@ export default function GamesShowcase() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    paddingTop: '16px',
+                    paddingTop: '12px',
                     borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                   }}
                 >
-                  <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--neon-cyan)' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--neon-cyan)' }}>
                     {game.stats}
                   </span>
-                  <ChevronRight size={18} color="var(--neon-cyan)" />
+                  <ChevronRight size={16} color="var(--neon-cyan)" />
                 </div>
               </div>
             </div>
@@ -192,45 +195,45 @@ export default function GamesShowcase() {
 
           {/* "And Many More..." Expansion Card */}
           <div
-            className="glass-panel"
+            className="glass-panel game-card-item"
             onClick={() => setShowExpansionModal(true)}
             style={{
               borderRadius: '16px',
               cursor: 'pointer',
-              minHeight: '340px',
+              minHeight: '260px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
               textAlign: 'center',
-              padding: '32px',
+              padding: '24px',
               border: '2px dashed var(--border-glass)',
               background: 'rgba(157, 0, 255, 0.04)',
             }}
           >
             <div
               style={{
-                width: '64px',
-                height: '64px',
+                width: '52px',
+                height: '52px',
                 borderRadius: '50%',
                 background: 'rgba(157, 0, 255, 0.15)',
                 border: '1px solid var(--neon-purple)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginBottom: '20px',
+                marginBottom: '16px',
                 boxShadow: '0 0 20px var(--neon-purple-glow)',
               }}
             >
-              <Sparkles size={28} color="var(--neon-purple)" />
+              <Sparkles size={24} color="var(--neon-purple)" />
             </div>
-            <h3 className="font-heading" style={{ fontSize: '1.4rem', color: '#fff', marginBottom: '8px' }}>
+            <h3 className="font-heading" style={{ fontSize: '1.2rem', color: '#fff', marginBottom: '6px' }}>
               AND MANY MORE...
             </h3>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', maxWidth: '240px', marginBottom: '20px' }}>
+            <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', maxWidth: '240px', marginBottom: '16px' }}>
               Explore the extended games library and stream archives.
             </p>
-            <span className="cyber-button-outline" style={{ padding: '8px 20px', fontSize: '0.85rem' }}>
+            <span className="cyber-button-outline" style={{ padding: '6px 16px', fontSize: '0.78rem', width: 'auto' }}>
               VIEW LIBRARY
             </span>
           </div>
@@ -249,18 +252,20 @@ export default function GamesShowcase() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '24px',
+            padding: '16px',
           }}
           onClick={() => setSelectedGame(null)}
         >
           <div
             className="glass-panel"
             style={{
-              maxWidth: '600px',
+              maxWidth: '560px',
               width: '100%',
               borderRadius: '20px',
               overflow: 'hidden',
               position: 'relative',
+              maxHeight: '90vh',
+              overflowY: 'auto',
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -268,14 +273,14 @@ export default function GamesShowcase() {
               onClick={() => setSelectedGame(null)}
               style={{
                 position: 'absolute',
-                top: '16px',
-                right: '16px',
+                top: '14px',
+                right: '14px',
                 background: 'rgba(0, 0, 0, 0.6)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 color: '#fff',
                 borderRadius: '50%',
-                width: '36px',
-                height: '36px',
+                width: '32px',
+                height: '32px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -283,36 +288,36 @@ export default function GamesShowcase() {
                 zIndex: 10,
               }}
             >
-              <X size={20} />
+              <X size={18} />
             </button>
 
             <img
               src={selectedGame.image}
               alt={selectedGame.title}
-              style={{ width: '100%', height: '240px', objectFit: 'cover' }}
+              style={{ width: '100%', height: '200px', objectFit: 'cover' }}
             />
 
-            <div style={{ padding: '32px' }}>
-              <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
+            <div style={{ padding: '24px' }}>
+              <div style={{ display: 'flex', gap: '8px', marginBottom: '10px', flexWrap: 'wrap' }}>
                 <span className="cyber-tag">{selectedGame.tag}</span>
                 <span className="cyber-tag-purple">{selectedGame.category}</span>
               </div>
 
-              <h2 className="font-heading" style={{ fontSize: '1.8rem', color: '#fff', marginBottom: '12px' }}>
+              <h2 className="font-heading" style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '10px' }}>
                 {selectedGame.title}
               </h2>
 
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '24px' }}>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.5, fontSize: '0.88rem', marginBottom: '20px' }}>
                 {selectedGame.description}
               </p>
 
-              <div style={{ marginBottom: '24px' }}>
-                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--neon-cyan)', marginBottom: '8px' }}>
+              <div style={{ marginBottom: '20px' }}>
+                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--neon-cyan)', marginBottom: '8px' }}>
                   KEY HIGHLIGHTS:
                 </div>
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   {selectedGame.highlights.map((h, i) => (
-                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-main)', fontSize: '0.9rem' }}>
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-main)', fontSize: '0.85rem' }}>
                       <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--neon-cyan)' }} />
                       {h}
                     </li>
@@ -340,18 +345,20 @@ export default function GamesShowcase() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '24px',
+            padding: '16px',
           }}
           onClick={() => setShowExpansionModal(false)}
         >
           <div
             className="glass-panel"
             style={{
-              maxWidth: '650px',
+              maxWidth: '600px',
               width: '100%',
               borderRadius: '20px',
-              padding: '36px',
+              padding: '28px',
               position: 'relative',
+              maxHeight: '90vh',
+              overflowY: 'auto',
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -359,52 +366,52 @@ export default function GamesShowcase() {
               onClick={() => setShowExpansionModal(false)}
               style={{
                 position: 'absolute',
-                top: '20px',
-                right: '20px',
+                top: '16px',
+                right: '16px',
                 background: 'transparent',
                 border: 'none',
                 color: 'var(--text-muted)',
                 cursor: 'pointer',
               }}
             >
-              <X size={24} />
+              <X size={20} />
             </button>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <Gamepad2 size={28} color="var(--neon-purple)" />
-              <h2 className="font-heading" style={{ fontSize: '1.6rem', color: '#fff' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+              <Gamepad2 size={24} color="var(--neon-purple)" />
+              <h2 className="font-heading" style={{ fontSize: '1.4rem', color: '#fff' }}>
                 EXTENDED GAMES LIBRARY
               </h2>
             </div>
 
-            <p style={{ color: 'var(--text-muted)', marginBottom: '28px' }}>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '0.88rem' }}>
               Additional titles frequently played on stream, special challenge runs, and co-op gaming sessions.
             </p>
 
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                gap: '16px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '14px',
               }}
             >
               {expansionGames.map((g) => (
                 <div
                   key={g.name}
                   style={{
-                    padding: '16px',
+                    padding: '14px',
                     borderRadius: '10px',
                     background: 'rgba(255, 255, 255, 0.04)',
                     border: '1px solid rgba(255, 255, 255, 0.08)',
                   }}
                 >
-                  <div style={{ fontWeight: 700, color: '#fff', fontSize: '1rem', marginBottom: '4px' }}>
+                  <div style={{ fontWeight: 700, color: '#fff', fontSize: '0.92rem', marginBottom: '4px' }}>
                     {g.name}
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--neon-cyan)' }}>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--neon-cyan)' }}>
                     {g.genre}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '4px' }}>
                     {g.hours}
                   </div>
                 </div>
@@ -413,6 +420,19 @@ export default function GamesShowcase() {
           </div>
         </div>
       )}
+
+      <style>{`
+        /* 2-Column Grid View on Smartphone & Tablet (< 768px) */
+        @media (max-width: 768px) {
+          .games-grid-container {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+          }
+          .game-card-img-wrap {
+            height: clamp(100px, 24vw, 140px) !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
