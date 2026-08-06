@@ -10,6 +10,7 @@ import CommunityBanner from './components/CommunityBanner';
 import Footer from './components/Footer';
 import MiniGameModal from './components/MiniGameModal';
 import AdminPanel from './components/AdminPanel';
+import MobileBottomNav from './components/MobileBottomNav';
 import { initAutoTracker } from './utils/tracker';
 import { X, Tv, ExternalLink } from 'lucide-react';
 
@@ -67,6 +68,12 @@ export default function App() {
 
       {/* Platform & Social Footer */}
       <Footer />
+
+      {/* Mobile/Tablet Fixed Bottom Navigation Bar */}
+      <MobileBottomNav
+        onOpenMiniGame={() => setMiniGameOpen(true)}
+        onOpenAdmin={() => setAdminOpen(true)}
+      />
 
       {/* Top-Right Cyberpunk Mini-Game & Leaderboard Modal */}
       <MiniGameModal
