@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Gamepad2, Film, Calendar, Shield, Lock } from 'lucide-react';
+import { Home, Gamepad2, Film, Lock } from 'lucide-react';
 
 export default function MobileBottomNav({ onOpenMiniGame, onOpenAdmin }) {
   const scrollTo = (id) => {
@@ -28,7 +28,7 @@ export default function MobileBottomNav({ onOpenMiniGame, onOpenAdmin }) {
         borderTop: '1px solid rgba(0, 240, 255, 0.25)',
         boxShadow: '0 -4px 25px rgba(0, 0, 0, 0.6)',
         padding: '8px 12px',
-        display: 'none', // Shown via CSS media query on <= 899px
+        display: 'none',
         justifyContent: 'space-around',
         alignItems: 'center',
       }}
@@ -146,7 +146,6 @@ export default function MobileBottomNav({ onOpenMiniGame, onOpenAdmin }) {
           .mobile-bottom-nav {
             display: flex !important;
           }
-          /* Add bottom padding to body on mobile so footer content isn't covered by bottom nav */
           body {
             padding-bottom: 60px !important;
           }
