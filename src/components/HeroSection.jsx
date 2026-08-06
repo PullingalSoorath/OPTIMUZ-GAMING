@@ -5,14 +5,12 @@ import EmbeddedMiniGame from './EmbeddedMiniGame';
 import { fetchLiveYouTubeChannelStats } from '../utils/api';
 
 export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
-  // Baseline stats (135+ Subscribers, 96+ Videos Uploaded, 8.8K+ Views)
   const [channelStats, setChannelStats] = useState({
     subscribers: '135+',
     videos: '96+',
     views: '8.8K+'
   });
 
-  // Persistent live YouTube channel statistics auto-updater
   useEffect(() => {
     async function updateYouTubeStats() {
       const data = await fetchLiveYouTubeChannelStats();
@@ -45,19 +43,103 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
       }}
     >
       <div className="container" style={{ width: '100%', maxWidth: '95vw', margin: '0 auto', border: 'none' }}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 'clamp(32px, 5vw, 80px)',
-            alignItems: 'center',
-            width: '100%',
-            border: 'none',
-          }}
-          className="hero-grid"
-        >
-          {/* Left Content Column: Profile Name & Details */}
-          <div style={{ zIndex: 2, border: 'none' }} className="hero-left-content">
+        <div className="hero-layout-wrapper">
+          
+          {/* 1. DP (Profile Avatar Graphic) */}
+          <div className="hero-dp-wrapper">
+            <div
+              style={{
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                border: 'none',
+              }}
+            >
+              {/* Glowing Background Halo */}
+              <div
+                style={{
+                  position: 'absolute',
+                  width: 'clamp(240px, 50vw, 360px)',
+                  height: 'clamp(240px, 50vw, 360px)',
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle, rgba(0,240,255,0.25) 0%, rgba(157,0,255,0.15) 50%, transparent 70%)',
+                  filter: 'blur(35px)',
+                  animation: 'pulse-live 4s infinite ease-in-out',
+                }}
+              />
+
+              {/* DP Avatar Graphic */}
+              <div
+                style={{
+                  width: 'clamp(210px, 45vw, 300px)',
+                  height: 'clamp(210px, 45vw, 300px)',
+                  borderRadius: '50%',
+                  position: 'relative',
+                  zIndex: 2,
+                  filter: 'drop-shadow(0 0 30px var(--neon-cyan-glow))',
+                  border: 'none',
+                }}
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/optimuz_avatar.png`}
+                  alt="OPTIMUZ GAMING DP Avatar"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                  }}
+                />
+              </div>
+
+              {/* Floating Cyber Badges */}
+              <div
+                className="glass-panel floating-badge-left"
+                style={{
+                  position: 'absolute',
+                  top: '5%',
+                  left: '-10px',
+                  padding: '6px 12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  zIndex: 3,
+                  border: '1px solid rgba(0, 240, 255, 0.25)',
+                }}
+              >
+                <Zap size={14} color="var(--neon-cyan)" />
+                <div>
+                  <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#fff' }}>CLUTCH SPECIALIST</div>
+                  <div style={{ fontSize: '0.58rem', color: 'var(--text-muted)' }}>100% High Octane</div>
+                </div>
+              </div>
+
+              <div
+                className="glass-panel floating-badge-right"
+                style={{
+                  position: 'absolute',
+                  bottom: '5%',
+                  right: '-10px',
+                  padding: '6px 12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  zIndex: 3,
+                  border: '1px solid rgba(255, 184, 0, 0.25)',
+                }}
+              >
+                <Trophy size={14} color="var(--neon-gold)" />
+                <div>
+                  <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#fff' }}>ROLEPLAY MASTER</div>
+                  <div style={{ fontSize: '0.58rem', color: 'var(--text-muted)' }}>Syn County &amp; Grand RP</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Name & Channel Title Details */}
+          <div className="hero-name-wrapper">
             <div
               style={{
                 display: 'inline-flex',
@@ -104,20 +186,22 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
                 fontSize: 'clamp(0.95rem, 1.4vw, 1.2rem)',
                 color: 'var(--text-muted)',
                 lineHeight: 1.6,
-                marginBottom: '28px',
+                marginBottom: '24px',
                 maxWidth: '560px',
               }}
             >
               High-Octane Gameplay, Roleplay Stories &amp; Next-Gen Streaming. Immerse yourself in Syn County RDR2 RP, Grand RP, PUBG tactical dominance, and survival horror journeys.
             </p>
+          </div>
 
-            {/* CTA Action Buttons Row */}
+          {/* 3. Action Buttons (Watch Live, YouTube Channel, Join Discord) */}
+          <div className="hero-buttons-wrapper">
             <div
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
                 gap: '12px',
-                marginBottom: '36px',
+                marginBottom: '28px',
               }}
               className="hero-cta-group"
             >
@@ -144,8 +228,15 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
                 Join Discord
               </a>
             </div>
+          </div>
 
-            {/* Quick Metrics Bar */}
+          {/* 4. Mini-Game Arcade Card */}
+          <div className="hero-game-wrapper">
+            <EmbeddedMiniGame />
+          </div>
+
+          {/* 5. Metrics Bar (Subscribers, Videos, Views) */}
+          <div className="hero-metrics-wrapper">
             <div
               style={{
                 display: 'grid',
@@ -155,6 +246,7 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
                 borderTop: '1px solid rgba(255, 255, 255, 0.1)',
                 borderLeft: 'none',
                 borderRight: 'none',
+                width: '100%',
               }}
             >
               <div>
@@ -193,138 +285,52 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
             </div>
           </div>
 
-          {/* Right Column: Hero Profile Image & Interactive Mini-Game Section */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '28px',
-              width: '100%',
-              border: 'none',
-            }}
-            className="hero-right-column"
-          >
-            {/* Profile Avatar Graphic */}
-            <div
-              style={{
-                position: 'relative',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: 'none',
-              }}
-            >
-              {/* Background glowing halo */}
-              <div
-                style={{
-                  position: 'absolute',
-                  width: 'clamp(240px, 50vw, 360px)',
-                  height: 'clamp(240px, 50vw, 360px)',
-                  borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(0,240,255,0.25) 0%, rgba(157,0,255,0.15) 50%, transparent 70%)',
-                  filter: 'blur(35px)',
-                  animation: 'pulse-live 4s infinite ease-in-out',
-                }}
-              />
-
-              {/* Avatar Graphic */}
-              <div
-                style={{
-                  width: 'clamp(220px, 45vw, 300px)',
-                  height: 'clamp(220px, 45vw, 300px)',
-                  borderRadius: '50%',
-                  position: 'relative',
-                  zIndex: 2,
-                  filter: 'drop-shadow(0 0 30px var(--neon-cyan-glow))',
-                  border: 'none',
-                }}
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/optimuz_avatar.png`}
-                  alt="OPTIMUZ GAMING Avatar"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: '50%',
-                    objectFit: 'cover',
-                  }}
-                />
-              </div>
-
-              {/* Floating Cyber Badges */}
-              <div
-                className="glass-panel floating-badge-left"
-                style={{
-                  position: 'absolute',
-                  top: '5%',
-                  left: '-15px',
-                  padding: '6px 12px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  zIndex: 3,
-                  border: '1px solid rgba(0, 240, 255, 0.25)',
-                }}
-              >
-                <Zap size={14} color="var(--neon-cyan)" />
-                <div>
-                  <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#fff' }}>CLUTCH SPECIALIST</div>
-                  <div style={{ fontSize: '0.58rem', color: 'var(--text-muted)' }}>100% High Octane</div>
-                </div>
-              </div>
-
-              <div
-                className="glass-panel floating-badge-right"
-                style={{
-                  position: 'absolute',
-                  bottom: '5%',
-                  right: '-15px',
-                  padding: '6px 12px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  zIndex: 3,
-                  border: '1px solid rgba(255, 184, 0, 0.25)',
-                }}
-              >
-                <Trophy size={14} color="var(--neon-gold)" />
-                <div>
-                  <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#fff' }}>ROLEPLAY MASTER</div>
-                  <div style={{ fontSize: '0.58rem', color: 'var(--text-muted)' }}>Syn County &amp; Grand RP</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Embedded Cyberpunk Mini-Game Arcade Card */}
-            <EmbeddedMiniGame />
-          </div>
         </div>
       </div>
 
       <style>{`
-        @media (max-width: 900px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
-            gap: 36px !important;
+        /* DESKTOP LAYOUT (>= 900px): 2-Column Side-by-Side Widescreen */
+        @media (min-width: 900px) {
+          .hero-layout-wrapper {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            grid-template-areas:
+              "name dp"
+              "buttons game"
+              "metrics game";
+            gap: 24px 60px;
+            align-items: center;
+          }
+          .hero-name-wrapper { grid-area: name; }
+          .hero-dp-wrapper { grid-area: dp; display: flex; justify-content: center; }
+          .hero-buttons-wrapper { grid-area: buttons; }
+          .hero-metrics-wrapper { grid-area: metrics; }
+          .hero-game-wrapper { grid-area: game; display: flex; justify-content: center; }
+        }
+
+        /* TABLET & SMARTPHONE LAYOUT (< 900px): Exact Requested Vertical Order */
+        /* Order: 1. DP -> 2. Name -> 3. Buttons -> 4. Game -> 5. Metrics */
+        @media (max-width: 899px) {
+          .hero-layout-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
+            gap: 28px;
+            width: 100%;
           }
-          .hero-left-content p {
-            margin-left: auto;
-            margin-right: auto;
-          }
-          .hero-cta-group {
-            justify-content: center;
-          }
+          .hero-dp-wrapper { order: 1; }
+          .hero-name-wrapper { order: 2; }
+          .hero-name-wrapper p { margin-left: auto; margin-right: auto; }
+          .hero-buttons-wrapper { order: 3; width: 100%; }
+          .hero-cta-group { justify-content: center; }
           .hero-cta-group > * {
-            flex: 1 1 100%; /* Full width action buttons on smartphone / small screen */
+            flex: 1 1 100%;
             max-width: 320px;
             margin: 0 auto;
           }
-          .hero-right-column {
-            order: 2;
-          }
+          .hero-game-wrapper { order: 4; width: 100%; display: flex; justify-content: center; }
+          .hero-metrics-wrapper { order: 5; width: 100%; }
           .floating-badge-left { left: 0px !important; }
           .floating-badge-right { right: 0px !important; }
         }
