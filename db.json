@@ -45,6 +45,22 @@
   ],
   "activities": [
     {
+      "id": "1786034958586-ue9q",
+      "sessionId": "sess-1786034958306-0bcos",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T16:49:18.586Z"
+    },
+    {
+      "id": "1786034958577-jjf9",
+      "sessionId": "sess-1786034958306-0bcos",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-06T16:49:18.577Z"
+    },
+    {
       "id": "1786034183659-d0vu",
       "sessionId": "sess-1786033635342-sx91l",
       "device": "Standard",
