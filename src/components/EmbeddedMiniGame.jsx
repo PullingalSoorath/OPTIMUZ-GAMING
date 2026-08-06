@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, Trophy, RotateCcw, Send, Award, Volume2, VolumeX, Sparkles } from 'lucide-react';
+import { Play, Trophy, RotateCcw, Send, Award, Volume2, VolumeX } from 'lucide-react';
 import { fetchLeaderboard, submitScore } from '../utils/api';
 import { audioSynth } from '../utils/audio';
 import { trackUserEvent } from '../utils/tracker';
 
 export default function EmbeddedMiniGame() {
-  const [activeTab, setActiveTab] = useState('game'); // 'game' | 'leaderboard'
-  const [gameState, setGameState] = useState('start'); // 'start' | 'playing' | 'gameover'
+  const [activeTab, setActiveTab] = useState('game');
+  const [gameState, setGameState] = useState('start');
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(30);
   const [combo, setCombo] = useState(1);
@@ -91,8 +91,11 @@ export default function EmbeddedMiniGame() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = 300;
+    const updateCanvasDimensions = () => {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = window.innerWidth <= 600 ? 250 : 300;
+    };
+    updateCanvasDimensions();
 
     const width = canvas.width;
     const height = canvas.height;
@@ -101,7 +104,7 @@ export default function EmbeddedMiniGame() {
 
     const spawnTarget = () => {
       const isGold = Math.random() > 0.75;
-      const radius = isGold ? 18 : Math.floor(Math.random() * 10) + 18;
+      const radius = isGold ? 20 : Math.floor(Math.random() * 8) + 20;
       gameData.current.targets.push({
         x: Math.random() * (width - 60) + 30,
         y: Math.random() * (height - 60) + 30,
@@ -109,15 +112,20 @@ export default function EmbeddedMiniGame() {
         color: isGold ? '#FFB800' : Math.random() > 0.5 ? '#00F0FF' : '#9D00FF',
         isGold,
         points: isGold ? 300 : 100,
-        vx: (Math.random() - 0.5) * 2.2,
-        vy: (Math.random() - 0.5) * 2.2,
+        vx: (Math.random() - 0.5) * 2.5,
+        vy: (Math.random() - 0.5) * 2.5,
       });
     };
 
-    const handleCanvasClick = (e) => {
+    // Touch & Click Pointer Handler for Multi-Device support
+    const handlePointerHit = (e) => {
+      e.preventDefault();
       const rect = canvas.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickY = e.clientY - rect.top;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+      const clickX = clientX - rect.left;
+      const clickY = clientY - rect.top;
 
       audioSynth.playLaser();
 
@@ -127,7 +135,7 @@ export default function EmbeddedMiniGame() {
       for (let i = targets.length - 1; i >= 0; i--) {
         const t = targets[i];
         const dist = Math.hypot(t.x - clickX, t.y - clickY);
-        if (dist <= t.radius) {
+        if (dist <= t.radius + 8) { // Extra touch radius allowance for mobile screens
           hit = true;
 
           const now = Date.now();
@@ -149,7 +157,7 @@ export default function EmbeddedMiniGame() {
             audioSynth.playHit();
           }
 
-          for (let p = 0; p < 12; p++) {
+          for (let p = 0; p < 10; p++) {
             gameData.current.particles.push({
               x: t.x,
               y: t.y,
@@ -172,7 +180,8 @@ export default function EmbeddedMiniGame() {
       }
     };
 
-    canvas.addEventListener('mousedown', handleCanvasClick);
+    canvas.addEventListener('pointerdown', handlePointerHit);
+    canvas.addEventListener('touchstart', handlePointerHit, { passive: false });
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
@@ -194,7 +203,7 @@ export default function EmbeddedMiniGame() {
       }
 
       spawnTimer++;
-      if (spawnTimer % 30 === 0 && gameData.current.targets.length < 6) {
+      if (spawnTimer % 28 === 0 && gameData.current.targets.length < 6) {
         spawnTarget();
       }
 
@@ -248,7 +257,8 @@ export default function EmbeddedMiniGame() {
     render();
 
     return () => {
-      canvas.removeEventListener('mousedown', handleCanvasClick);
+      canvas.removeEventListener('pointerdown', handlePointerHit);
+      canvas.removeEventListener('touchstart', handlePointerHit);
       cancelAnimationFrame(gameLoopRef.current);
     };
   }, [gameState]);
@@ -272,7 +282,7 @@ export default function EmbeddedMiniGame() {
       style={{
         width: '100%',
         maxWidth: '540px',
-        padding: '24px',
+        padding: 'clamp(16px, 3vw, 24px)',
         borderRadius: '20px',
         border: '1px solid var(--neon-purple)',
         boxShadow: '0 0 35px var(--neon-purple-glow)',
@@ -287,13 +297,13 @@ export default function EmbeddedMiniGame() {
           <button
             onClick={() => setActiveTab('game')}
             style={{
-              padding: '6px 14px',
+              padding: '6px 12px',
               borderRadius: '6px',
               border: activeTab === 'game' ? 'none' : '1px solid rgba(255, 255, 255, 0.1)',
               background: activeTab === 'game' ? 'var(--neon-purple)' : 'transparent',
               color: '#fff',
               fontWeight: 700,
-              fontSize: '0.8rem',
+              fontSize: '0.78rem',
               cursor: 'pointer',
             }}
           >
@@ -302,13 +312,13 @@ export default function EmbeddedMiniGame() {
           <button
             onClick={() => setActiveTab('leaderboard')}
             style={{
-              padding: '6px 14px',
+              padding: '6px 12px',
               borderRadius: '6px',
               border: activeTab === 'leaderboard' ? 'none' : '1px solid rgba(255, 255, 255, 0.1)',
               background: activeTab === 'leaderboard' ? 'var(--neon-gold)' : 'transparent',
               color: activeTab === 'leaderboard' ? 'var(--bg-dark)' : 'var(--neon-gold)',
               fontWeight: 700,
-              fontSize: '0.8rem',
+              fontSize: '0.78rem',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -339,15 +349,15 @@ export default function EmbeddedMiniGame() {
         <div>
           {/* START STATE */}
           {gameState === 'start' && (
-            <div style={{ padding: '20px 10px' }}>
-              <div style={{ fontSize: '1.25rem', fontWeight: 900, color: '#fff', marginBottom: '8px' }} className="font-heading">
+            <div style={{ padding: '16px 8px' }}>
+              <div style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', fontWeight: 900, color: '#fff', marginBottom: '8px' }} className="font-heading">
                 CYBER TARGET BLASTER <span style={{ color: 'var(--neon-cyan)' }}>2077</span>
               </div>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '20px' }}>
-                Blast neon targets directly on the home page! Score points &amp; claim top rank on the Leaderboard.
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '18px' }}>
+                Tap/Click targets to score! Compete on the <strong>Global Top 5 Leaderboard</strong>.
               </p>
-              <button onClick={startGame} className="cyber-button cyber-button-purple" style={{ padding: '14px 36px', fontSize: '1rem' }}>
-                <Play size={18} fill="currentColor" /> START GAME
+              <button onClick={startGame} className="cyber-button cyber-button-purple" style={{ padding: '12px 28px', fontSize: '0.9rem', width: 'auto' }}>
+                <Play size={16} fill="currentColor" /> START GAME
               </button>
             </div>
           )}
@@ -355,31 +365,31 @@ export default function EmbeddedMiniGame() {
           {/* PLAYING STATE */}
           {gameState === 'playing' && (
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.9rem', fontFamily: 'var(--font-heading)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.85rem', fontFamily: 'var(--font-heading)' }}>
                 <span style={{ color: 'var(--neon-cyan)' }}>SCORE: {score}</span>
                 <span style={{ color: combo > 1 ? 'var(--neon-gold)' : 'var(--text-muted)' }}>x{combo} COMBO</span>
                 <span style={{ color: timeLeft <= 5 ? 'var(--neon-pink)' : 'var(--neon-green)' }}>{timeLeft}s</span>
               </div>
 
-              <div style={{ width: '100%', height: '300px', borderRadius: '12px', overflow: 'hidden', background: '#050508', border: '1px solid var(--neon-cyan)' }}>
-                <canvas ref={canvasRef} style={{ width: '100%', height: '100%', cursor: 'crosshair' }} />
+              <div style={{ width: '100%', height: '260px', borderRadius: '12px', overflow: 'hidden', background: '#050508', border: '1px solid var(--neon-cyan)', touchAction: 'none' }}>
+                <canvas ref={canvasRef} style={{ width: '100%', height: '100%', cursor: 'crosshair', touchAction: 'none' }} />
               </div>
             </div>
           )}
 
           {/* GAME OVER STATE */}
           {gameState === 'gameover' && (
-            <div style={{ padding: '16px 10px' }}>
-              <Trophy size={36} color="var(--neon-gold)" style={{ marginBottom: '8px' }} />
-              <div className="font-heading" style={{ fontSize: '1.4rem', color: '#fff', marginBottom: '4px' }}>
+            <div style={{ padding: '16px 8px' }}>
+              <Trophy size={32} color="var(--neon-gold)" style={{ marginBottom: '6px' }} />
+              <div className="font-heading" style={{ fontSize: '1.25rem', color: '#fff', marginBottom: '4px' }}>
                 GAME OVER!
               </div>
-              <div style={{ fontSize: '1.2rem', color: 'var(--neon-cyan)', fontWeight: 800, marginBottom: '16px', fontFamily: 'var(--font-heading)' }}>
+              <div style={{ fontSize: '1.1rem', color: 'var(--neon-cyan)', fontWeight: 800, marginBottom: '14px', fontFamily: 'var(--font-heading)' }}>
                 SCORE: {score} PTS
               </div>
 
               {!submitted ? (
-                <form onSubmit={handleSubmitScore} style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+                <form onSubmit={handleSubmitScore} style={{ display: 'flex', gap: '8px', marginBottom: '14px', flexWrap: 'wrap' }}>
                   <input
                     type="text"
                     placeholder="Your Display Name"
@@ -389,30 +399,31 @@ export default function EmbeddedMiniGame() {
                     maxLength={18}
                     style={{
                       flex: 1,
-                      padding: '10px 14px',
+                      minWidth: '160px',
+                      padding: '10px 12px',
                       borderRadius: '6px',
                       background: 'rgba(255, 255, 255, 0.06)',
                       border: '1px solid var(--neon-cyan)',
                       color: '#fff',
-                      fontSize: '0.9rem',
+                      fontSize: '0.85rem',
                       outline: 'none',
                     }}
                   />
-                  <button type="submit" className="cyber-button" style={{ padding: '10px 18px', fontSize: '0.85rem' }}>
+                  <button type="submit" className="cyber-button" style={{ padding: '10px 16px', fontSize: '0.82rem', width: 'auto' }}>
                     <Send size={14} /> SUBMIT
                   </button>
                 </form>
               ) : (
-                <div style={{ color: 'var(--neon-green)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '16px' }}>
+                <div style={{ color: 'var(--neon-green)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px' }}>
                   ✅ Score Saved! Check Leaderboard Tab!
                 </div>
               )}
 
-              <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-                <button onClick={startGame} className="cyber-button" style={{ padding: '10px 20px', fontSize: '0.85rem' }}>
+              <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+                <button onClick={startGame} className="cyber-button" style={{ padding: '8px 16px', fontSize: '0.82rem', width: 'auto' }}>
                   <RotateCcw size={14} /> REPLAY
                 </button>
-                <button onClick={() => setActiveTab('leaderboard')} className="cyber-button-outline" style={{ padding: '10px 18px', fontSize: '0.85rem' }}>
+                <button onClick={() => setActiveTab('leaderboard')} className="cyber-button-outline" style={{ padding: '8px 16px', fontSize: '0.82rem', width: 'auto' }}>
                   LEADERBOARD
                 </button>
               </div>
@@ -423,12 +434,12 @@ export default function EmbeddedMiniGame() {
 
       {/* LEADERBOARD TAB */}
       {activeTab === 'leaderboard' && (
-        <div style={{ padding: '8px 0' }}>
-          <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--neon-gold)', marginBottom: '12px' }} className="font-heading">
+        <div style={{ padding: '4px 0' }}>
+          <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--neon-gold)', marginBottom: '10px' }} className="font-heading">
             🏆 TOP 5 LEADERBOARD
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             {leaderboard.map((entry, index) => {
               const rankColor = index === 0 ? 'var(--neon-gold)' : index === 1 ? '#C0C0C0' : index === 2 ? '#CD7F32' : 'var(--neon-cyan)';
               return (
@@ -438,19 +449,19 @@ export default function EmbeddedMiniGame() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    padding: '10px 14px',
+                    padding: '8px 12px',
                     borderRadius: '8px',
                     background: index === 0 ? 'rgba(255, 184, 0, 0.08)' : 'rgba(255, 255, 255, 0.03)',
                     border: index === 0 ? '1px solid var(--neon-gold)' : '1px solid rgba(255, 255, 255, 0.06)',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Award size={16} color={rankColor} />
-                    <span style={{ fontWeight: 800, color: rankColor, fontSize: '0.95rem' }}>#{index + 1}</span>
-                    <span style={{ fontWeight: 700, color: '#fff', fontSize: '0.9rem' }}>{entry.name}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Award size={14} color={rankColor} />
+                    <span style={{ fontWeight: 800, color: rankColor, fontSize: '0.85rem' }}>#{index + 1}</span>
+                    <span style={{ fontWeight: 700, color: '#fff', fontSize: '0.85rem' }}>{entry.name}</span>
                   </div>
 
-                  <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, color: rankColor, fontSize: '0.95rem' }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, color: rankColor, fontSize: '0.85rem' }}>
                     {entry.score} PTS
                   </div>
                 </div>

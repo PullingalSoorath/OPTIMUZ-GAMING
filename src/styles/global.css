@@ -11,7 +11,7 @@ html, body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   scroll-behavior: smooth;
   color-scheme: dark;
 }
@@ -23,11 +23,13 @@ body {
   line-height: 1.6;
   position: relative;
   border: none !important;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Custom Cyber Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-dark);
@@ -74,10 +76,10 @@ body {
 
 /* Glassmorphism Panels & Seamless Cards */
 .glass-panel {
-  background: rgba(15, 16, 25, 0.65);
+  background: rgba(15, 16, 25, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   border-radius: 14px;
   position: relative;
@@ -96,9 +98,9 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 14px 32px;
+  padding: 14px 28px;
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: clamp(0.82rem, 1.2vw, 0.95rem);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -113,6 +115,7 @@ body {
   transition: var(--transition-fast);
   box-shadow: 0 0 20px var(--neon-cyan-glow);
   clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  touch-action: manipulation;
 }
 
 .cyber-button::before {
@@ -182,7 +185,7 @@ body {
 /* Badge & Tag Utility */
 .cyber-tag {
   font-family: var(--font-subheading);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -191,6 +194,7 @@ body {
   background: rgba(0, 240, 255, 0.1);
   color: var(--neon-cyan);
   border: 1px solid rgba(0, 240, 255, 0.3);
+  white-space: nowrap;
 }
 
 .cyber-tag-purple {
@@ -227,36 +231,37 @@ body {
   animation: pulse-live 2s infinite;
 }
 
-/* 95vw Full Widescreen Desktop Container */
+/* Responsive Container across Smartphone, Tablet, & Desktop */
 .container {
   width: 100%;
-  max-width: 95vw;
+  max-width: 1720px;
   margin: 0 auto;
-  padding: 0 clamp(24px, 4vw, 80px);
+  padding: 0 clamp(16px, 4vw, 64px);
   border: none !important;
   box-shadow: none !important;
 }
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   margin-bottom: 12px;
+  line-height: 1.15;
 }
 
 .section-subtitle {
   color: var(--text-muted);
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
-  margin-bottom: 48px;
-  max-width: 900px;
+  font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+  margin-bottom: 40px;
+  max-width: 850px;
 }
 
-/* Section Spacing & 100% Width */
+/* Section Spacing */
 section {
   position: relative;
-  padding: 96px 0;
+  padding: clamp(60px, 8vw, 96px) 0;
   z-index: 2;
   width: 100%;
   border: none !important;
@@ -272,17 +277,18 @@ section {
   animation: spin 1s linear infinite;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* SMARTPHONE & TABLET RESPONSIVE BREAKPOINTS (< 900px) */
+@media (max-width: 900px) {
   .container {
-    padding: 0 20px;
-    max-width: 100%;
+    padding: 0 16px;
   }
-  section {
-    padding: 60px 0;
-  }
+  
   .cyber-button {
-    padding: 12px 24px;
-    font-size: 0.85rem;
+    width: 100%; /* Stretch full width on mobile touch devices */
+    padding: 14px 20px;
+  }
+  
+  .section-subtitle {
+    margin-bottom: 28px;
   }
 }

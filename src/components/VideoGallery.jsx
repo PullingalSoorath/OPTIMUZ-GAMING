@@ -99,7 +99,6 @@ export default function VideoGallery() {
     async function fetchLiveFeed() {
       setLoading(true);
       try {
-        // Cache buster timestamp ensures immediate detection of new uploads
         const response = await fetch(
           `https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}&_t=${Date.now()}`
         );
@@ -140,8 +139,6 @@ export default function VideoGallery() {
     }
 
     fetchLiveFeed();
-
-    // Auto-refresh feed every 3 minutes so new uploads instantly appear on open tabs
     const interval = setInterval(fetchLiveFeed, 180000);
     return () => clearInterval(interval);
   }, []);
@@ -155,7 +152,7 @@ export default function VideoGallery() {
     <section id="videos">
       <div className="container">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <div className="cyber-tag" style={{ display: 'inline-block', marginBottom: '12px' }}>
             🔴 LIVE CHANNEL FEED (@OPTIMUZ_GAMING)
           </div>
@@ -163,7 +160,7 @@ export default function VideoGallery() {
             LATEST UPLOADS &amp; STREAMS
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto' }}>
-            Real-time video feed synchronized directly with the official <strong>OPTIMUZ GAMING</strong> YouTube channel.
+            Real-time video feed synchronized directly with official <strong>OPTIMUZ GAMING</strong> YouTube channel.
           </p>
         </div>
 
@@ -171,9 +168,9 @@ export default function VideoGallery() {
         <div
           className="glass-panel"
           style={{
-            padding: '24px',
+            padding: 'clamp(16px, 3vw, 24px)',
             borderRadius: '20px',
-            marginBottom: '48px',
+            marginBottom: '36px',
             border: '1px solid rgba(0, 240, 255, 0.3)',
             boxShadow: '0 0 35px rgba(0, 240, 255, 0.15)',
           }}
@@ -186,7 +183,7 @@ export default function VideoGallery() {
               overflow: 'hidden',
               borderRadius: '12px',
               background: '#000',
-              marginBottom: '20px',
+              marginBottom: '16px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
             }}
           >
@@ -207,21 +204,21 @@ export default function VideoGallery() {
           </div>
 
           {/* Player Info Footer */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
-            <div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '14px' }}>
+            <div style={{ flex: '1 1 280px' }}>
               <div style={{ display: 'flex', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
                 <span className="cyber-tag">{currentVideo.category}</span>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                   <Eye size={14} color="var(--neon-cyan)" /> {currentVideo.views}
                 </span>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                   <Clock size={14} color="var(--neon-purple)" /> {currentVideo.date}
                 </span>
               </div>
-              <h3 className="font-heading" style={{ fontSize: '1.35rem', color: '#fff', marginBottom: '8px' }}>
+              <h3 className="font-heading" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', color: '#fff', marginBottom: '6px' }}>
                 {currentVideo.title}
               </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', maxWidth: '820px', lineHeight: 1.5 }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5 }}>
                 {currentVideo.description}
               </p>
             </div>
@@ -231,32 +228,32 @@ export default function VideoGallery() {
               target="_blank"
               rel="noreferrer"
               className="cyber-button-outline"
-              style={{ padding: '10px 20px', fontSize: '0.85rem', whiteSpace: 'nowrap' }}
+              style={{ padding: '8px 16px', fontSize: '0.8rem', whiteSpace: 'nowrap', width: 'auto' }}
             >
-              <YoutubeIcon size={16} /> WATCH ON YOUTUBE
+              <YoutubeIcon size={14} /> WATCH ON YOUTUBE
             </a>
           </div>
         </div>
 
         {/* Playlist Category Filter Bar */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px', flexWrap: 'wrap', gap: '16px' }}>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
+          <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px', maxWidth: '100%' }}>
             {['ALL', 'MECCA CHAMELEON', 'RDR2 RP', 'COMPETITIVE'].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 style={{
                   cursor: 'pointer',
-                  padding: '8px 18px',
+                  padding: '6px 14px',
                   borderRadius: '6px',
                   fontFamily: 'var(--font-subheading)',
-                  fontSize: '0.85rem',
+                  fontSize: '0.8rem',
                   fontWeight: 700,
                   border: activeCategory === cat ? 'none' : '1px solid rgba(0, 240, 255, 0.2)',
                   background: activeCategory === cat ? 'linear-gradient(135deg, var(--neon-cyan), #00b8ff)' : 'rgba(255, 255, 255, 0.03)',
                   color: activeCategory === cat ? 'var(--bg-dark)' : 'var(--neon-cyan)',
                   boxShadow: activeCategory === cat ? '0 0 15px var(--neon-cyan-glow)' : 'none',
-                  transition: 'all 0.2s ease',
+                  whiteSpace: 'nowrap',
                 }}
               >
                 {cat}
@@ -264,9 +261,9 @@ export default function VideoGallery() {
             ))}
           </div>
 
-          <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
             <RefreshCw size={14} className={loading ? 'spin' : ''} color="var(--neon-cyan)" />
-            {loading ? 'Syncing YouTube Feed...' : 'Auto-Synced with @optimuz_gaming'}
+            {loading ? 'Syncing...' : 'Auto-Synced'}
           </div>
         </div>
 
@@ -274,8 +271,8 @@ export default function VideoGallery() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '28px',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+            gap: '20px',
             width: '100%',
           }}
         >
@@ -296,7 +293,7 @@ export default function VideoGallery() {
                 window.scrollTo({ top: document.getElementById('videos').offsetTop + 100, behavior: 'smooth' });
               }}
             >
-              <div style={{ position: 'relative', height: '190px' }}>
+              <div style={{ position: 'relative', height: '175px' }}>
                 <img
                   src={video.thumbnail}
                   alt={video.title}
@@ -311,13 +308,12 @@ export default function VideoGallery() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     opacity: currentVideo.id === video.id ? 1 : 0.75,
-                    transition: 'opacity 0.2s ease',
                   }}
                 >
                   <div
                     style={{
-                      width: '46px',
-                      height: '46px',
+                      width: '42px',
+                      height: '42px',
                       borderRadius: '50%',
                       background: 'linear-gradient(135deg, var(--neon-cyan), var(--neon-purple))',
                       display: 'flex',
@@ -326,7 +322,7 @@ export default function VideoGallery() {
                       boxShadow: '0 0 15px var(--neon-cyan-glow)',
                     }}
                   >
-                    <Play size={20} fill="#07070a" color="#07070a" />
+                    <Play size={18} fill="#07070a" color="#07070a" />
                   </div>
                 </div>
                 <span
@@ -338,7 +334,7 @@ export default function VideoGallery() {
                     border: '1px solid rgba(255, 255, 255, 0.2)',
                     padding: '2px 8px',
                     borderRadius: '4px',
-                    fontSize: '0.72rem',
+                    fontSize: '0.7rem',
                     color: 'var(--neon-cyan)',
                     fontWeight: 700,
                   }}
@@ -347,17 +343,17 @@ export default function VideoGallery() {
                 </span>
               </div>
 
-              <div style={{ padding: '18px' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--neon-cyan)', marginBottom: '6px' }}>
+              <div style={{ padding: '16px' }}>
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--neon-cyan)', marginBottom: '4px' }}>
                   {video.category}
                 </div>
                 <h4
                   style={{
-                    fontSize: '0.92rem',
+                    fontSize: '0.88rem',
                     fontWeight: 700,
                     color: '#fff',
                     lineHeight: 1.4,
-                    marginBottom: '10px',
+                    marginBottom: '8px',
                     display: '-webkit-box',
                     WebkitLineClamp: 2,
                     WebkitBoxOrient: 'vertical',
@@ -366,7 +362,7 @@ export default function VideoGallery() {
                 >
                   {video.title}
                 </h4>
-                <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                   {video.date} • {video.views}
                 </div>
               </div>

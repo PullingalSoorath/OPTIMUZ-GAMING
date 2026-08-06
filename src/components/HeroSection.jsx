@@ -5,7 +5,7 @@ import EmbeddedMiniGame from './EmbeddedMiniGame';
 import { fetchLiveYouTubeChannelStats } from '../utils/api';
 
 export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
-  // Initialize state with real-time baseline (135+ Subscribers, 96+ Videos Uploaded, 8.8K+ Views)
+  // Baseline stats (135+ Subscribers, 96+ Videos Uploaded, 8.8K+ Views)
   const [channelStats, setChannelStats] = useState({
     subscribers: '135+',
     videos: '96+',
@@ -26,7 +26,7 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
     }
 
     updateYouTubeStats();
-    const interval = setInterval(updateYouTubeStats, 60000); // Check every 60 seconds
+    const interval = setInterval(updateYouTubeStats, 60000);
     return () => clearInterval(interval);
   }, []);
 
@@ -37,8 +37,8 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: '130px',
-        paddingBottom: '80px',
+        paddingTop: 'clamp(90px, 12vw, 130px)',
+        paddingBottom: '60px',
         position: 'relative',
         overflow: 'hidden',
         border: 'none',
@@ -49,7 +49,7 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            gap: 'clamp(40px, 6vw, 100px)',
+            gap: 'clamp(32px, 5vw, 80px)',
             alignItems: 'center',
             width: '100%',
             border: 'none',
@@ -57,7 +57,7 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
           className="hero-grid"
         >
           {/* Left Content Column: Profile Name & Details */}
-          <div style={{ zIndex: 2, border: 'none' }}>
+          <div style={{ zIndex: 2, border: 'none' }} className="hero-left-content">
             <div
               style={{
                 display: 'inline-flex',
@@ -67,14 +67,14 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
                 borderRadius: '20px',
                 background: 'rgba(0, 240, 255, 0.08)',
                 border: '1px solid rgba(0, 240, 255, 0.25)',
-                marginBottom: '20px',
+                marginBottom: '16px',
               }}
             >
-              <Flame size={16} color="var(--neon-gold)" />
+              <Flame size={14} color="var(--neon-gold)" />
               <span
                 style={{
                   fontFamily: 'var(--font-subheading)',
-                  fontSize: '0.85rem',
+                  fontSize: '0.8rem',
                   fontWeight: 700,
                   color: 'var(--neon-gold)',
                   letterSpacing: '1.5px',
@@ -86,13 +86,13 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
             </div>
 
             <h1
-              className="font-heading"
+              className="font-heading hero-title"
               style={{
-                fontSize: 'clamp(2.5rem, 5vw, 4.2rem)',
+                fontSize: 'clamp(2.2rem, 4.5vw, 4.2rem)',
                 fontWeight: 900,
                 lineHeight: 1.08,
                 letterSpacing: '1px',
-                marginBottom: '20px',
+                marginBottom: '16px',
               }}
             >
               OPTIMUZ <br />
@@ -101,20 +101,28 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
 
             <p
               style={{
-                fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                fontSize: 'clamp(0.95rem, 1.4vw, 1.2rem)',
                 color: 'var(--text-muted)',
                 lineHeight: 1.6,
-                marginBottom: '36px',
+                marginBottom: '28px',
                 maxWidth: '560px',
               }}
             >
               High-Octane Gameplay, Roleplay Stories &amp; Next-Gen Streaming. Immerse yourself in Syn County RDR2 RP, Grand RP, PUBG tactical dominance, and survival horror journeys.
             </p>
 
-            {/* CTA Action Buttons */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '48px' }}>
+            {/* CTA Action Buttons Row */}
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '12px',
+                marginBottom: '36px',
+              }}
+              className="hero-cta-group"
+            >
               <button onClick={onWatchLive} className="cyber-button">
-                <Play size={18} fill="currentColor" />
+                <Play size={16} fill="currentColor" />
                 Watch Live
               </button>
               <a
@@ -123,7 +131,7 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
                 rel="noreferrer"
                 className="cyber-button cyber-button-red"
               >
-                <YoutubeIcon size={18} />
+                <YoutubeIcon size={16} />
                 YouTube Channel
               </a>
               <a
@@ -132,18 +140,18 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
                 rel="noreferrer"
                 className="cyber-button cyber-button-purple"
               >
-                <DiscordIcon size={18} />
+                <DiscordIcon size={16} />
                 Join Discord
               </a>
             </div>
 
-            {/* Quick Metrics Bar (Live Auto-Updating YouTube Statistics) */}
+            {/* Quick Metrics Bar */}
             <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '20px',
-                paddingTop: '28px',
+                gap: '16px',
+                paddingTop: '24px',
                 borderTop: '1px solid rgba(255, 255, 255, 0.1)',
                 borderLeft: 'none',
                 borderRight: 'none',
@@ -152,33 +160,33 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
               <div>
                 <div
                   className="font-heading"
-                  style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--neon-cyan)' }}
+                  style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontWeight: 800, color: 'var(--neon-cyan)' }}
                 >
                   {channelStats.subscribers}
                 </div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
                   Subscribers
                 </div>
               </div>
               <div>
                 <div
                   className="font-heading"
-                  style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--neon-purple)' }}
+                  style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontWeight: 800, color: 'var(--neon-purple)' }}
                 >
                   {channelStats.videos}
                 </div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
                   Videos Uploaded
                 </div>
               </div>
               <div>
                 <div
                   className="font-heading"
-                  style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--neon-gold)' }}
+                  style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontWeight: 800, color: 'var(--neon-gold)' }}
                 >
                   {channelStats.views}
                 </div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
                   Channel Views
                 </div>
               </div>
@@ -192,7 +200,7 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '36px',
+              gap: '28px',
               width: '100%',
               border: 'none',
             }}
@@ -212,11 +220,11 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
               <div
                 style={{
                   position: 'absolute',
-                  width: '380px',
-                  height: '380px',
+                  width: 'clamp(240px, 50vw, 360px)',
+                  height: 'clamp(240px, 50vw, 360px)',
                   borderRadius: '50%',
                   background: 'radial-gradient(circle, rgba(0,240,255,0.25) 0%, rgba(157,0,255,0.15) 50%, transparent 70%)',
-                  filter: 'blur(40px)',
+                  filter: 'blur(35px)',
                   animation: 'pulse-live 4s infinite ease-in-out',
                 }}
               />
@@ -224,12 +232,12 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
               {/* Avatar Graphic */}
               <div
                 style={{
-                  width: '320px',
-                  height: '320px',
+                  width: 'clamp(220px, 45vw, 300px)',
+                  height: 'clamp(220px, 45vw, 300px)',
                   borderRadius: '50%',
                   position: 'relative',
                   zIndex: 2,
-                  filter: 'drop-shadow(0 0 35px var(--neon-cyan-glow))',
+                  filter: 'drop-shadow(0 0 30px var(--neon-cyan-glow))',
                   border: 'none',
                 }}
               >
@@ -247,44 +255,44 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
 
               {/* Floating Cyber Badges */}
               <div
-                className="glass-panel"
+                className="glass-panel floating-badge-left"
                 style={{
                   position: 'absolute',
                   top: '5%',
-                  left: '-20px',
-                  padding: '8px 14px',
+                  left: '-15px',
+                  padding: '6px 12px',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
+                  gap: '6px',
                   zIndex: 3,
                   border: '1px solid rgba(0, 240, 255, 0.25)',
                 }}
               >
-                <Zap size={16} color="var(--neon-cyan)" />
+                <Zap size={14} color="var(--neon-cyan)" />
                 <div>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#fff' }}>CLUTCH SPECIALIST</div>
-                  <div style={{ fontSize: '0.62rem', color: 'var(--text-muted)' }}>100% High Octane</div>
+                  <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#fff' }}>CLUTCH SPECIALIST</div>
+                  <div style={{ fontSize: '0.58rem', color: 'var(--text-muted)' }}>100% High Octane</div>
                 </div>
               </div>
 
               <div
-                className="glass-panel"
+                className="glass-panel floating-badge-right"
                 style={{
                   position: 'absolute',
                   bottom: '5%',
-                  right: '-20px',
-                  padding: '8px 14px',
+                  right: '-15px',
+                  padding: '6px 12px',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
+                  gap: '6px',
                   zIndex: 3,
                   border: '1px solid rgba(255, 184, 0, 0.25)',
                 }}
               >
-                <Trophy size={16} color="var(--neon-gold)" />
+                <Trophy size={14} color="var(--neon-gold)" />
                 <div>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#fff' }}>ROLEPLAY MASTER</div>
-                  <div style={{ fontSize: '0.62rem', color: 'var(--text-muted)' }}>Syn County &amp; Grand RP</div>
+                  <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#fff' }}>ROLEPLAY MASTER</div>
+                  <div style={{ fontSize: '0.58rem', color: 'var(--text-muted)' }}>Syn County &amp; Grand RP</div>
                 </div>
               </div>
             </div>
@@ -299,19 +307,26 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
         @media (max-width: 900px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
+            gap: 36px !important;
             text-align: center;
           }
-          .hero-grid > div:first-child p {
+          .hero-left-content p {
             margin-left: auto;
             margin-right: auto;
           }
-          .hero-grid > div:first-child > div:nth-child(3) {
+          .hero-cta-group {
             justify-content: center;
+          }
+          .hero-cta-group > * {
+            flex: 1 1 100%; /* Full width action buttons on smartphone / small screen */
+            max-width: 320px;
+            margin: 0 auto;
           }
           .hero-right-column {
             order: 2;
           }
+          .floating-badge-left { left: 0px !important; }
+          .floating-badge-right { right: 0px !important; }
         }
       `}</style>
     </section>
