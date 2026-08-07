@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Lock, Eye, Users, Gamepad2, Trash2, RefreshCw, X, Search, CheckCircle2 } from 'lucide-react';
+import { Shield, Lock, Eye, Gamepad2, Trash2, RefreshCw, X, Search, CheckCircle2 } from 'lucide-react';
 import { fetchAdminLogs, clearAdminLogs } from '../utils/api';
 
 export default function AdminPanel({ isOpen, onClose }) {

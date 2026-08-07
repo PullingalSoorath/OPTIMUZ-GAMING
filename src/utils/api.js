@@ -59,7 +59,7 @@ export async function fetchLeaderboard() {
 }
 
 // 3. Score Submission
-export async function submitScore(name, score, timePlayed) {
+export async function submitScore(name, score) {
   const cleanName = sanitize(name, 20) || 'Anonymous';
   const cleanScore = parseInt(score, 10) || 0;
 
@@ -78,8 +78,8 @@ export async function submitScore(name, score, timePlayed) {
   return { success: true, leaderboard: top5, isTop5: top5.some(e => e.id === newEntry.id) };
 }
 
-// 4. Activity Logger
-export async function logActivity(sessionId, device, action, details = '') {
+// 4. Activity Logger (Clean client-side no-op)
+export async function logActivity() {
   // Pure client side - zero network prompts
 }
 
@@ -99,7 +99,7 @@ export async function fetchAdminLogs(passcode) {
   return { success: false, message: 'Invalid Passcode' };
 }
 
-export async function clearAdminLogs(passcode) {
+export async function clearAdminLogs() {
   saveLocalActivities([]);
   return { success: true };
 }
