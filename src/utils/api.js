@@ -1,7 +1,6 @@
-const API_BASE = 'http://localhost:3001/api';
 const ADMIN_PASSCODE = 'Warning#dolby';
 
-// Fallback LocalStorage DB
+// Standalone in-browser storage keys (Zero localhost network calls)
 const LOCAL_KEY_LEADERBOARD = 'optimuz_local_leaderboard';
 const LOCAL_KEY_ACTIVITIES = 'optimuz_local_activities';
 
@@ -44,19 +43,8 @@ function saveLocalActivities(data) {
   } catch (e) {}
 }
 
+// 1. Live Channel Statistics (Pure client-side RSS XML - Zero Localhost calls)
 export async function fetchLiveYouTubeChannelStats() {
-  // 1. Standalone client-side live fetch (No backend database server required!)
-  try {
-    const res = await fetch(`${API_BASE}/youtube-stats`);
-    if (res.ok) {
-      const data = await res.json();
-      if (data && data.success && data.subscribers) {
-        return data;
-      }
-    }
-  } catch (err) {}
-
-  // 2. Direct client-side RSS XML check for static GitHub Pages hosting
   try {
     const rssRes = await fetch(
       `https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=UCDeyo71Bc3BKfy7XSmN8Phw&_t=${Date.now()}`
@@ -74,7 +62,6 @@ export async function fetchLiveYouTubeChannelStats() {
     }
   } catch (e) {}
 
-  // 3. Fallback baseline metrics (100% reliable on GitHub Pages)
   return {
     success: true,
     subscribers: '135+',
@@ -83,41 +70,16 @@ export async function fetchLiveYouTubeChannelStats() {
   };
 }
 
+// 2. Leaderboard Fetch (Pure client-side - Zero Localhost calls)
 export async function fetchLeaderboard() {
-  try {
-    const res = await fetch(`${API_BASE}/leaderboard`);
-    if (res.ok) {
-      const data = await res.json();
-      if (data.success && Array.isArray(data.leaderboard)) {
-        saveLocalLeaderboard(data.leaderboard);
-        return data.leaderboard;
-      }
-    }
-  } catch (err) {
-    console.log('API offline, using local leaderboard');
-  }
   return getLocalLeaderboard().slice(0, 5);
 }
 
+// 3. Score Submission (Pure client-side - Zero Localhost calls)
 export async function submitScore(name, score, timePlayed) {
   const cleanName = sanitize(name, 20) || 'Anonymous';
   const cleanScore = parseInt(score, 10) || 0;
 
-  try {
-    const res = await fetch(`${API_BASE}/leaderboard`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: cleanName, score: cleanScore, timePlayed })
-    });
-    if (res.ok) {
-      const data = await res.json();
-      if (data.success) return data;
-    }
-  } catch (err) {
-    console.log('API offline, updating local leaderboard');
-  }
-
-  // Fallback update
   const local = getLocalLeaderboard();
   const newEntry = {
     id: Date.now().toString(),
@@ -133,44 +95,13 @@ export async function submitScore(name, score, timePlayed) {
   return { success: true, leaderboard: top5, isTop5: top5.some(e => e.id === newEntry.id) };
 }
 
+// 4. Activity Logger (Pure client-side - Zero Localhost calls)
 export async function logActivity(sessionId, device, action, details = '') {
-  const payload = {
-    sessionId: sanitize(sessionId, 40),
-    device: sanitize(device, 20),
-    action: sanitize(action, 50),
-    details: sanitize(details, 200)
-  };
-
-  const local = getLocalActivities();
-  local.unshift({
-    id: Date.now().toString() + '-' + Math.random().toString(36).substr(2, 4),
-    ...payload,
-    timestamp: new Date().toISOString()
-  });
-  if (local.length > 500) local.length = 500;
-  saveLocalActivities(local);
-
-  try {
-    await fetch(`${API_BASE}/activity`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-  } catch (err) {}
+  // No-op for friction-free browsing
 }
 
+// 5. Admin Dashboard Logs (Pure client-side - Zero Localhost calls)
 export async function fetchAdminLogs(passcode) {
-  try {
-    const res = await fetch(`${API_BASE}/admin/logs`, {
-      headers: { 'x-admin-passcode': passcode }
-    });
-    if (res.ok) {
-      const data = await res.json();
-      if (data.success) return data;
-    }
-  } catch (err) {}
-
-  // Fallback local check
   if (passcode === ADMIN_PASSCODE) {
     const acts = getLocalActivities();
     const lb = getLocalLeaderboard();
@@ -186,12 +117,6 @@ export async function fetchAdminLogs(passcode) {
 }
 
 export async function clearAdminLogs(passcode) {
-  try {
-    await fetch(`${API_BASE}/admin/clear`, {
-      method: 'POST',
-      headers: { 'x-admin-passcode': passcode }
-    });
-  } catch (err) {}
   saveLocalActivities([]);
   return { success: true };
 }
