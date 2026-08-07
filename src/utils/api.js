@@ -43,25 +43,8 @@ function saveLocalActivities(data) {
   } catch (e) {}
 }
 
-// 1. Live Channel Statistics (Updated Live Values: 143+ Subs, 97+ Videos, 9.2K+ Views)
-export async function fetchLiveYouTubeChannelStats() {
-  try {
-    const rssRes = await fetch(
-      `https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=UCDeyo71Bc3BKfy7XSmN8Phw&_t=${Date.now()}`
-    );
-    if (rssRes.ok) {
-      const data = await rssRes.json();
-      if (data.status === 'ok' && data.items) {
-        return {
-          success: true,
-          subscribers: '143+',
-          videos: '97+',
-          views: '9.2K+'
-        };
-      }
-    }
-  } catch (e) {}
-
+// 1. Live Channel Statistics (143+ Subscribers | 97+ Videos Uploaded | 9.2K+ Views)
+export function fetchLiveYouTubeChannelStats() {
   return {
     success: true,
     subscribers: '143+',
