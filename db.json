@@ -45,6 +45,118 @@
   ],
   "activities": [
     {
+      "id": "1786085679713-e1sg",
+      "sessionId": "sess-1785945506712-bmgng",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:54:39.713Z"
+    },
+    {
+      "id": "1786085673192-7xjd",
+      "sessionId": "sess-1785945506712-bmgng",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:54:33.192Z"
+    },
+    {
+      "id": "1786085647085-mle8",
+      "sessionId": "sess-1785837050899-5r0f7",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:54:07.085Z"
+    },
+    {
+      "id": "1786085645671-577f",
+      "sessionId": "sess-1785945506712-bmgng",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:54:05.671Z"
+    },
+    {
+      "id": "1786085645653-nmt6",
+      "sessionId": "sess-1785945506712-bmgng",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:54:05.653Z"
+    },
+    {
+      "id": "1786085641129-27ld",
+      "sessionId": "sess-1785945499477-878ib",
+      "device": "Desktop",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:54:01.129Z"
+    },
+    {
+      "id": "1786085544634-m0n5",
+      "sessionId": "sess-1786085487685-66kqh",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:52:24.634Z"
+    },
+    {
+      "id": "1786085543245-zxns",
+      "sessionId": "sess-1786085487685-66kqh",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:52:23.245Z"
+    },
+    {
+      "id": "1786085541997-w8cz",
+      "sessionId": "sess-1786085487685-66kqh",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:52:21.997Z"
+    },
+    {
+      "id": "1786085540097-rri2",
+      "sessionId": "sess-1786085487685-66kqh",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:52:20.097Z"
+    },
+    {
+      "id": "1786085536295-6kp0",
+      "sessionId": "sess-1786085487685-66kqh",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:52:16.295Z"
+    },
+    {
+      "id": "1786085533437-mm52",
+      "sessionId": "sess-1786085487685-66kqh",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:52:13.437Z"
+    },
+    {
+      "id": "1786085488168-2etv",
+      "sessionId": "sess-1786085487685-66kqh",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:51:28.168Z"
+    },
+    {
+      "id": "1786085487787-l759",
+      "sessionId": "sess-1786085487685-66kqh",
+      "device": "Standard",
+      "action": "Page Loaded",
+      "details": "URL: Home",
+      "timestamp": "2026-08-07T06:51:27.787Z"
+    },
+    {
       "id": "1786039245619-mxo5",
       "sessionId": "sess-1786037078062-eyqb0",
       "device": "Standard",
