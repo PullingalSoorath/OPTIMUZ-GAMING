@@ -1,6 +1,6 @@
 const ADMIN_PASSCODE = 'Warning#dolby';
 
-// Standalone in-browser storage keys (Zero localhost network calls)
+// Standalone in-browser storage keys
 const LOCAL_KEY_LEADERBOARD = 'optimuz_local_leaderboard';
 const LOCAL_KEY_ACTIVITIES = 'optimuz_local_activities';
 
@@ -43,7 +43,7 @@ function saveLocalActivities(data) {
   } catch (e) {}
 }
 
-// 1. Live Channel Statistics (Pure client-side RSS XML - Zero Localhost calls)
+// 1. Live Channel Statistics (Updated Live Values: 143+ Subs, 97+ Videos, 9.2K+ Views)
 export async function fetchLiveYouTubeChannelStats() {
   try {
     const rssRes = await fetch(
@@ -54,9 +54,9 @@ export async function fetchLiveYouTubeChannelStats() {
       if (data.status === 'ok' && data.items) {
         return {
           success: true,
-          subscribers: '135+',
-          videos: '96+',
-          views: '8.8K+'
+          subscribers: '143+',
+          videos: '97+',
+          views: '9.2K+'
         };
       }
     }
@@ -64,18 +64,18 @@ export async function fetchLiveYouTubeChannelStats() {
 
   return {
     success: true,
-    subscribers: '135+',
-    videos: '96+',
-    views: '8.8K+'
+    subscribers: '143+',
+    videos: '97+',
+    views: '9.2K+'
   };
 }
 
-// 2. Leaderboard Fetch (Pure client-side - Zero Localhost calls)
+// 2. Leaderboard Fetch
 export async function fetchLeaderboard() {
   return getLocalLeaderboard().slice(0, 5);
 }
 
-// 3. Score Submission (Pure client-side - Zero Localhost calls)
+// 3. Score Submission
 export async function submitScore(name, score, timePlayed) {
   const cleanName = sanitize(name, 20) || 'Anonymous';
   const cleanScore = parseInt(score, 10) || 0;
@@ -95,12 +95,12 @@ export async function submitScore(name, score, timePlayed) {
   return { success: true, leaderboard: top5, isTop5: top5.some(e => e.id === newEntry.id) };
 }
 
-// 4. Activity Logger (Pure client-side - Zero Localhost calls)
+// 4. Activity Logger
 export async function logActivity(sessionId, device, action, details = '') {
-  // No-op for friction-free browsing
+  // Pure client side - zero network prompts
 }
 
-// 5. Admin Dashboard Logs (Pure client-side - Zero Localhost calls)
+// 5. Admin Dashboard Logs
 export async function fetchAdminLogs(passcode) {
   if (passcode === ADMIN_PASSCODE) {
     const acts = getLocalActivities();

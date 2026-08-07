@@ -6,9 +6,9 @@ import { fetchLiveYouTubeChannelStats } from '../utils/api';
 
 export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
   const [channelStats, setChannelStats] = useState({
-    subscribers: '135+',
-    videos: '96+',
-    views: '8.8K+'
+    subscribers: '143+',
+    videos: '97+',
+    views: '9.2K+'
   });
 
   useEffect(() => {
@@ -17,8 +17,8 @@ export default function HeroSection({ onWatchLive, onOpenMiniGame }) {
       if (data && data.subscribers) {
         setChannelStats({
           subscribers: data.subscribers,
-          videos: data.videos || '96+',
-          views: data.views || '8.8K+'
+          videos: data.videos || '97+',
+          views: data.views || '9.2K+'
         });
       }
     }
